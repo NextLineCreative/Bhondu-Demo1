@@ -7,51 +7,73 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Ivory / off-white surface family
+        // Surfaces
         ivory: {
-          50:  '#FBF6EA',
-          100: '#F5EEDD',
-          200: '#EEE4CC',
-          300: '#E4D6B4',
+          DEFAULT: '#F7EEDF',
+          50:  '#FFF8EC',      // light cream
+          100: '#F7EEDF',      // main ivory
+          200: '#E7CDB0',      // sand
+          300: '#D8A27D',      // clay beige
         },
-        // Rustic clay / terracotta accents
+        cream: '#FFF8EC',
+        sand:  '#E7CDB0',
+
+        // Clay / terracotta family
         clay: {
-          300: '#D2A985',
-          400: '#B47A55',
-          500: '#8B5A3C',
-          600: '#6B4530',
-          700: '#5A3A28',
+          300: '#D8A27D',      // clay beige
+          400: '#C9825F',      // clay
+          500: '#B96F4D',
+          600: '#A95738',      // TERRACOTTA (brand accent)
+          700: '#8B5036',      // warm brown
+          800: '#78351F',      // deep terracotta
         },
-        // Deep forest green (primary brand accent)
+        terracotta: {
+          DEFAULT: '#A95738',
+          500: '#A95738',
+          600: '#8B4529',
+          700: '#78351F',
+        },
+
+        // Text / ink
+        ink: {
+          700: '#24150E',
+          800: '#24150E',
+          900: '#12080A',
+          muted: '#72584A',
+        },
+
+        // Border
+        border: '#D8C1A9',
+
+        // Deep dark section
         forest: {
           400: '#4E5F49',
-          500: '#3A4B36',
-          600: '#2A3A26',
-          700: '#1F2B1D',
-          800: '#152014',
-          900: '#0D1509',
+          500: '#657052',      // botanical green
+          600: '#3A4B36',
+          700: '#2A3A26',
+          800: '#1F2B1D',
+          900: '#152014',
         },
-        // Rust / burnt-orange (secondary accent, buttons)
+        botanical: '#657052',
+
+        // Rust alias (existing pages still reference this)
         rust: {
-          400: '#B86844',
-          500: '#A05437',
-          600: '#8A4529',
-        },
-        // Ink text tokens
-        ink: {
-          700: '#2E1F13',
-          800: '#1F1509',
-          900: '#140D04',
+          400: '#B96F4D',
+          500: '#A95738',
+          600: '#78351F',
         },
       },
       fontFamily: {
-        display: ['Fraunces', 'Georgia', 'serif'],
-        serif:   ['Fraunces', 'Georgia', 'serif'],
+        display: ['"Bodoni Moda"', 'Georgia', 'serif'],
+        serif:   ['"Bodoni Moda"', 'Georgia', 'serif'],
+        heading: ['"Playfair Display"', 'Georgia', 'serif'],
+        body:    ['"Instrument Sans"', 'Inter', 'system-ui', 'sans-serif'],
+        sans:    ['"Instrument Sans"', 'Inter', 'system-ui', 'sans-serif'],
         hand:    ['Caveat', 'cursive'],
-        sans:    ['Inter', 'system-ui', 'sans-serif'],
       },
       letterSpacing: {
-        'widest-2': '0.32em',
+        'widest-2': '0.28em',
+        'widest-3': '0.35em',
       },
       keyframes: {
         'fade-up': {

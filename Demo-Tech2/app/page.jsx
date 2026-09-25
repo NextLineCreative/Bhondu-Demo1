@@ -65,68 +65,96 @@ const badges = [
 export default function HomePage() {
   return (
     <>
-      {/* HERO — full-bleed image right, tight copy column left */}
-      <section className="relative bg-ivory-100">
-        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,42%),minmax(0,58%)]">
-          {/* LEFT: copy */}
-          <div className="flex flex-col justify-center px-6 py-16 lg:px-14 lg:py-24">
-            <p className="text-[11px] font-semibold uppercase tracking-widest-2 text-ink-800">
-              Natural Materials · Timeless Objects
-            </p>
-            <h1 className="display mt-8 text-[72px] leading-[0.9] text-ink-800 lg:text-[104px]">
-              FORMED<br/>BY EARTH.
-            </h1>
-            <p className="mt-8 max-w-sm text-[17px] leading-relaxed text-ink-700">
-              Handcrafted clay pieces for a more meaningful home. Rooted in nature, shaped by hands, made to last.
-            </p>
-            <Link href="/shop" className="btn-primary mt-10 self-start">
-              Shop the Collection <Icon name="arrow" className="h-3.5 w-3.5" />
-            </Link>
+      {/* HERO — editorial 50/50 with organic ivory shapes + pottery still-life */}
+      <section className="grain relative overflow-hidden" style={{ background: 'var(--ivory)' }}>
+        <div className="relative grid min-h-[720px] grid-cols-1 lg:grid-cols-2">
+          {/* Organic cream/sand blobs behind the LEFT panel */}
+          <div className="pointer-events-none absolute inset-0 -z-0 lg:right-1/2">
+            <div className="blob-cream absolute -left-32 -top-24 h-[560px] w-[640px] opacity-90" />
+            <div className="blob-sand absolute -left-24 top-72 h-[400px] w-[460px] opacity-60" />
           </div>
 
-          {/* RIGHT: big pot image with annotations */}
-          <div className="relative min-h-[520px] lg:min-h-[720px]">
+          {/* LEFT: copy */}
+          <div className="relative z-10 flex flex-col justify-center px-6 py-20 lg:px-16 lg:py-28">
+            <p className="eyebrow">Natural Materials · Timeless Objects</p>
+
+            <h1 className="display mt-10 text-[76px] lg:text-[124px]" style={{ lineHeight: 0.78 }}>
+              FORMED<br/>BY<br/>EARTH.
+            </h1>
+
+            <p className="mt-10 max-w-md text-[17px] leading-[1.7]" style={{ color: 'var(--text-muted)' }}>
+              Handcrafted clay pieces for a more meaningful home. Rooted in nature, shaped by hands, made to last.
+            </p>
+
+            <Link href="/shop" className="btn-primary mt-12 self-start">
+              <span>Shop the Collection</span>
+              <Icon name="arrow" className="h-4 w-4" />
+            </Link>
+
+            <p className="hand relative z-10 mt-16 max-w-[220px] rotate-[-3deg] text-xl leading-tight" style={{ color: 'var(--text-dark)' }}>
+              Rooted in earth<br/>&nbsp;— made by hand.
+            </p>
+
+            {/* Bottom-left botanical accent */}
+            <svg className="pointer-events-none absolute bottom-8 left-6 h-28 w-28 opacity-45" viewBox="0 0 100 100" fill="none">
+              <path d="M20 90 Q 40 60 30 30 Q 55 45 70 25 Q 85 40 65 70 Q 55 85 20 90 Z" stroke="var(--botanical)" strokeWidth="1.2" fill="none" />
+              <path d="M30 30 Q 45 55 50 80" stroke="var(--botanical)" strokeWidth="0.8" fill="none" />
+            </svg>
+          </div>
+
+          {/* RIGHT: pottery scene on warm-brown gradient */}
+          <div
+            className="relative z-10 min-h-[520px] overflow-hidden lg:min-h-[720px]"
+            style={{ background: 'linear-gradient(135deg, #9A573B 0%, #7C3F29 100%)' }}
+          >
             <img
               src={P.heroPot}
-              alt="Handcrafted earthen vessel"
+              alt="Handcrafted pottery vessels"
               className="absolute inset-0 h-full w-full object-cover"
+              style={{ filter: 'saturate(0.9) contrast(1.04)', mixBlendMode: 'multiply' }}
             />
-            {/* handwritten note top-left */}
-            <p className="hand absolute left-6 top-8 max-w-[180px] rotate-[-5deg] text-2xl leading-tight text-ink-800">
-              Raw earth<br/>shaped by<br/>human hands.
-            </p>
-            {/* dotted arrow line under first note (decorative) */}
-            <svg className="pointer-events-none absolute left-32 top-24 h-14 w-24 text-ink-800/60" viewBox="0 0 100 60" fill="none">
-              <path d="M2 8 C 30 20, 60 30, 92 52" stroke="currentColor" strokeWidth="1.2" strokeDasharray="3 3" />
-              <path d="M85 45 L92 52 L83 55" stroke="currentColor" strokeWidth="1.2" fill="none" />
+            {/* Unifying warm overlay */}
+            <div
+              className="pointer-events-none absolute inset-0"
+              style={{ background: 'linear-gradient(135deg, rgba(154,87,59,0.35) 0%, rgba(124,63,41,0.55) 100%)' }}
+            />
+
+            {/* Botanical accents on the right panel */}
+            <svg className="pointer-events-none absolute right-6 top-10 h-32 w-32 opacity-50" viewBox="0 0 100 100" fill="none">
+              <path d="M10 20 Q 30 10 50 20 Q 40 40 20 50 Q 5 40 10 20 Z" fill="var(--botanical)" opacity="0.55" />
+              <path d="M55 15 Q 75 10 90 25 Q 80 45 60 45 Q 50 30 55 15 Z" fill="var(--botanical)" opacity="0.35" />
             </svg>
-            {/* handwritten note top-right */}
-            <p className="hand absolute right-8 top-10 max-w-[180px] rotate-[3deg] text-2xl leading-tight text-ink-800">
-              Each piece<br/>carries a story
+            <svg className="pointer-events-none absolute bottom-6 left-6 h-32 w-32 rotate-180 opacity-45" viewBox="0 0 100 100" fill="none">
+              <path d="M15 25 Q 40 15 55 30 Q 45 55 25 55 Q 8 45 15 25 Z" fill="var(--botanical)" opacity="0.55" />
+            </svg>
+
+            {/* Editorial notes on the pottery panel */}
+            <p className="hand absolute right-10 top-16 max-w-[200px] rotate-[3deg] text-2xl leading-tight text-cream">
+              Each piece<br/>carries a story.
             </p>
-            {/* vertical sidebar text */}
-            <div className="absolute right-4 top-1/2 -translate-y-1/2 text-right text-[11px] font-semibold uppercase tracking-widest-2 text-ivory-50/95">
-              <p>CLAY</p><p>FIRE</p><p>HANDS</p><p>HOME</p>
-              <span className="mt-2 ml-auto block h-px w-8 bg-ivory-50/80" />
-            </div>
-            {/* fig. label bottom-right */}
-            <p className="hand absolute bottom-8 right-6 rotate-[-3deg] text-right text-xl leading-tight text-ivory-50">
+            <p className="hand absolute bottom-24 left-8 rotate-[-2deg] text-xl leading-tight text-cream">
               Fig. 01<br/>Earthen Vessel<br/>c. 2024
             </p>
+
+            {/* Vertical brand sidebar */}
+            <div className="absolute right-4 top-1/2 -translate-y-1/2 text-right text-[11px] font-medium uppercase tracking-[0.28em] text-cream/90">
+              <p>Clay</p><p>Fire</p><p>Hands</p><p>Home</p>
+              <span className="ml-auto mt-2 block h-px w-8 bg-cream/70" />
+            </div>
           </div>
         </div>
 
-        {/* Objects strip — sits under the copy column, product card straddles the image edge */}
-        <div className="relative mx-auto -mt-4 grid max-w-none grid-cols-1 items-center gap-6 px-6 pb-10 lg:grid-cols-[minmax(0,42%),minmax(0,58%)] lg:gap-0 lg:px-14 lg:pb-14">
+        {/* Objects strip below hero */}
+        <div className="relative z-10 mx-auto grid max-w-none grid-cols-1 items-center gap-6 px-6 pb-14 pt-4 lg:grid-cols-2 lg:gap-0 lg:px-16">
           <div className="flex items-start gap-3">
-            <Icon name="sprig" className="h-6 w-6 shrink-0 text-clay-600" />
-            <p className="text-[10px] font-semibold uppercase tracking-widest-2 leading-[1.5] text-ink-800/85">
+            <Icon name="sprig" className="h-6 w-6 shrink-0" style={{ color: 'var(--terracotta)' }} />
+            <p className="text-[11px] font-semibold uppercase tracking-[0.28em] leading-[1.5]" style={{ color: 'var(--text-dark)' }}>
               Objects<br/>for a Slower<br/>Life
             </p>
           </div>
-          <div className="relative -mx-2 flex items-center gap-4 rounded-sm bg-ivory-50 p-4 paper-edge lg:mx-0 lg:-ml-24 lg:mr-6">
-            {[P.mug, P.bowl, P.vase, P.plate, P.jug].map((src, i) => (
-              <img key={i} src={src} alt="" className="h-20 w-24 shrink-0 rounded-sm object-cover md:h-24 md:w-32" />
+          <div className="relative -mx-2 flex items-center gap-4 bg-cream p-4 shadow-[0_2px_20px_rgba(36,21,14,0.08)] lg:mx-0 lg:-ml-32 lg:mr-6">
+            {[P.mug, P.cup, P.bowl, P.vase, P.plate, P.jug].map((src, i) => (
+              <img key={i} src={src} alt="" className="h-20 w-24 shrink-0 object-cover md:h-24 md:w-32" />
             ))}
           </div>
         </div>
