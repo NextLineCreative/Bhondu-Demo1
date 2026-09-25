@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Icon } from '@/components/Icons'
+import ServiceCard from '@/components/ServiceCard'
 
 const IMG = {
   heroHand: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1200&q=80',
@@ -12,10 +13,10 @@ const IMG = {
 }
 
 const bigCards = [
-  { title: 'Classic', sub: 'Extensions', tag: 'TIMELESS BEAUTY · ALWAYS IN STYLE', img: IMG.classic, dark: true },
-  { title: 'Gel', sub: 'Extensions', tag: 'STRONG · NATURAL · FLAWLESS', img: IMG.gel, dark: false },
-  { title: 'Acrylic', sub: 'Extensions', tag: 'BOLD DESIGNS · ENDLESS POSSIBILITIES', img: IMG.acrylic, dark: true },
-  { title: 'Custom', sub: 'Nail Art', tag: 'YOUR IMAGINATION · OUR ART', img: IMG.custom, dark: false },
+  { title: 'Classic', sub: 'Extensions', tag: 'TIMELESS BEAUTY · ALWAYS IN STYLE', img: IMG.classic, variant: 'dark', offset: 16, shape: 1 },
+  { title: 'Gel', sub: 'Extensions', tag: 'STRONG · NATURAL · FLAWLESS', img: IMG.gel, variant: 'cream', offset: -12, shape: 2 },
+  { title: 'Acrylic', sub: 'Extensions', tag: 'BOLD DESIGNS · ENDLESS POSSIBILITIES', img: IMG.acrylic, variant: 'dark', offset: 16, shape: 3 },
+  { title: 'Custom', sub: 'Nail Art', tag: 'YOUR IMAGINATION · OUR ART', img: IMG.custom, variant: 'cream', offset: -12, shape: 4 },
 ]
 
 const signature = [
@@ -75,24 +76,11 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* 4 BIG CARDS */}
-      <section className="py-8">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-6 lg:grid-cols-4 lg:px-10">
+      {/* 4 BIG CARDS — staggered organic row */}
+      <section className="py-12">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-4 gap-y-8 px-6 lg:grid-cols-4 lg:gap-x-6 lg:px-10">
           {bigCards.map((s) => (
-            <div key={s.title} className={`card-shape relative overflow-hidden ${s.dark ? 'bg-wine-700' : 'bg-cream-200'}`}>
-              <img src={s.img} alt={`${s.title} ${s.sub}`} className={`h-72 w-full object-cover ${s.dark ? 'opacity-85' : ''}`} />
-              <div className={`absolute inset-0 bg-gradient-to-t ${s.dark ? 'from-wine-800/70' : 'from-cream-100/50'}`} />
-              <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-5">
-                <div className={s.dark ? 'text-cream-100' : 'text-wine-800'}>
-                  <h3 className="font-serif text-2xl">{s.title}</h3>
-                  <p className="font-serif text-2xl -mt-1">{s.sub}</p>
-                  <p className="mt-2 text-[10px] tracking-widest-2">{s.tag}</p>
-                </div>
-                <button aria-label="View" className={`grid h-10 w-10 place-items-center rounded-full border ${s.dark ? 'border-cream-100 text-cream-100' : 'border-wine-700 text-wine-700'}`}>
-                  <Icon name="arrow" className="h-4 w-4" />
-                </button>
-              </div>
-            </div>
+            <ServiceCard key={s.title} {...s} />
           ))}
         </div>
       </section>
