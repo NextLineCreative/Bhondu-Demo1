@@ -59,42 +59,68 @@ const badges = [
 export default function HomePage() {
   return (
     <>
-      {/* HERO */}
-      <section className="relative bg-cream-100 pb-16">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 pt-6 lg:grid-cols-[1fr,1.1fr] lg:px-10">
-          <div className="pt-6">
-            <p className="text-[10px] uppercase tracking-widest-2 text-ink-800">Natural Materials · Timeless Objects</p>
-            <h1 className="display mt-6 text-[68px] leading-[0.95] text-ink-800 lg:text-[92px]">
+      {/* HERO — full-bleed image right, tight copy column left */}
+      <section className="relative bg-cream-100">
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,42%),minmax(0,58%)]">
+          {/* LEFT: copy */}
+          <div className="flex flex-col justify-center px-6 py-16 lg:px-14 lg:py-24">
+            <p className="text-[11px] font-semibold uppercase tracking-widest-2 text-ink-800">
+              Natural Materials · Timeless Objects
+            </p>
+            <h1 className="display mt-8 text-[72px] leading-[0.9] text-ink-800 lg:text-[104px]">
               FORMED<br/>BY EARTH.
             </h1>
-            <p className="mt-6 max-w-md text-base leading-relaxed text-ink-700/85">
+            <p className="mt-8 max-w-sm text-[17px] leading-relaxed text-ink-700">
               Handcrafted clay pieces for a more meaningful home. Rooted in nature, shaped by hands, made to last.
             </p>
-            <Link href="/shop" className="btn-primary mt-8">
+            <Link href="/shop" className="btn-primary mt-10 self-start">
               Shop the Collection <Icon name="arrow" className="h-3.5 w-3.5" />
             </Link>
           </div>
 
-          <div className="relative">
-            <img src={IMG.heroPot} alt="Handcrafted earthen vessel" className="h-[560px] w-full rounded-sm object-cover paper-edge" />
-            <p className="hand absolute -top-2 left-10 text-xl text-ink-800 rotate-[-6deg]">Raw earth shaped by human hands.</p>
-            <p className="hand absolute right-8 top-16 text-xl text-ink-800 rotate-[4deg]">Each piece carries a story</p>
-            <div className="absolute right-6 top-1/2 -translate-y-1/2 text-right text-[10px] uppercase tracking-widest-2 text-cream-50">
-              CLAY<br/>FIRE<br/>HANDS<br/><span className="mt-1 block h-px w-6 bg-cream-50 ml-auto" />
+          {/* RIGHT: big pot image with annotations */}
+          <div className="relative min-h-[520px] lg:min-h-[720px]">
+            <img
+              src={IMG.heroPot}
+              alt="Handcrafted earthen vessel"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+            {/* handwritten note top-left */}
+            <p className="hand absolute left-6 top-8 max-w-[180px] rotate-[-5deg] text-2xl leading-tight text-ink-800">
+              Raw earth<br/>shaped by<br/>human hands.
+            </p>
+            {/* dotted arrow line under first note (decorative) */}
+            <svg className="pointer-events-none absolute left-32 top-24 h-14 w-24 text-ink-800/60" viewBox="0 0 100 60" fill="none">
+              <path d="M2 8 C 30 20, 60 30, 92 52" stroke="currentColor" strokeWidth="1.2" strokeDasharray="3 3" />
+              <path d="M85 45 L92 52 L83 55" stroke="currentColor" strokeWidth="1.2" fill="none" />
+            </svg>
+            {/* handwritten note top-right */}
+            <p className="hand absolute right-8 top-10 max-w-[180px] rotate-[3deg] text-2xl leading-tight text-ink-800">
+              Each piece<br/>carries a story
+            </p>
+            {/* vertical sidebar text */}
+            <div className="absolute right-4 top-1/2 -translate-y-1/2 text-right text-[11px] font-semibold uppercase tracking-widest-2 text-cream-50/95">
+              <p>CLAY</p><p>FIRE</p><p>HANDS</p><p>HOME</p>
+              <span className="mt-2 ml-auto block h-px w-8 bg-cream-50/80" />
             </div>
-            <p className="hand absolute bottom-4 right-6 text-lg text-cream-50 rotate-[-2deg]">Fig. 01<br/>Earthen Vessel<br/>c. 2024</p>
+            {/* fig. label bottom-right */}
+            <p className="hand absolute bottom-8 right-6 rotate-[-3deg] text-right text-xl leading-tight text-cream-50">
+              Fig. 01<br/>Earthen Vessel<br/>c. 2024
+            </p>
           </div>
         </div>
 
-        {/* Objects for a slower life strip */}
-        <div className="mx-auto mt-14 flex max-w-7xl items-center gap-8 px-6 lg:px-10">
+        {/* Objects strip — sits under the copy column, product card straddles the image edge */}
+        <div className="relative mx-auto -mt-4 grid max-w-none grid-cols-1 items-center gap-6 px-6 pb-10 lg:grid-cols-[minmax(0,42%),minmax(0,58%)] lg:gap-0 lg:px-14 lg:pb-14">
           <div className="flex items-start gap-3">
-            <Icon name="sprig" className="h-6 w-6 text-clay-600" />
-            <p className="text-[10px] uppercase tracking-widest-2 text-ink-800/80">Objects<br/>for a Slower<br/>Life</p>
+            <Icon name="sprig" className="h-6 w-6 shrink-0 text-clay-600" />
+            <p className="text-[10px] font-semibold uppercase tracking-widest-2 leading-[1.5] text-ink-800/85">
+              Objects<br/>for a Slower<br/>Life
+            </p>
           </div>
-          <div className="flex flex-1 items-center gap-6 overflow-x-auto rounded-sm bg-cream-50 p-4 paper-edge">
+          <div className="relative -mx-2 flex items-center gap-4 rounded-sm bg-cream-50 p-4 paper-edge lg:mx-0 lg:-ml-24 lg:mr-6">
             {[IMG.mug, IMG.bowl, IMG.vase, IMG.plate, IMG.jug].map((src, i) => (
-              <img key={i} src={src} alt="" className="h-24 w-32 shrink-0 rounded-sm object-cover" />
+              <img key={i} src={src} alt="" className="h-20 w-24 shrink-0 rounded-sm object-cover md:h-24 md:w-32" />
             ))}
           </div>
         </div>
