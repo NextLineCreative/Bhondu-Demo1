@@ -1,0 +1,306 @@
+import Link from 'next/link'
+import { Icon } from '@/components/Icons'
+
+const IMG = {
+  heroPot: 'https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=1200&q=80',
+  handsClay: 'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=1200&q=80',
+  clayRaw: 'https://images.unsplash.com/photo-1551772804-b90f4b4ff9de?auto=format&fit=crop&w=600&q=80',
+  shaping: 'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=600&q=80',
+  firing: 'https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&w=600&q=80',
+  finishing: 'https://images.unsplash.com/photo-1493106641515-6b5631de4bb9?auto=format&fit=crop&w=600&q=80',
+  mug: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=600&q=80',
+  bowl: 'https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=600&q=80',
+  vase: 'https://images.unsplash.com/photo-1578500494198-246f612d3b3d?auto=format&fit=crop&w=600&q=80',
+  plate: 'https://images.unsplash.com/photo-1592837827234-a95a14ca7bfa?auto=format&fit=crop&w=600&q=80',
+  jug: 'https://images.unsplash.com/photo-1610701596061-2ecf227e85b2?auto=format&fit=crop&w=600&q=80',
+  planter: 'https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=600&q=80',
+  earthVessel: 'https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=900&q=80',
+  studio1: 'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=600&q=80',
+  studio2: 'https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&w=600&q=80',
+  studio3: 'https://images.unsplash.com/photo-1493106641515-6b5631de4bb9?auto=format&fit=crop&w=600&q=80',
+}
+
+const archive = [
+  { n: '02', name: 'Espresso Cup', price: '₹599', img: IMG.mug, rot: -3 },
+  { n: '03', name: 'Serving Bowl', price: '₹899', img: IMG.bowl, rot: 2 },
+  { n: '01', name: 'Handmade Vase', price: '₹699', img: IMG.vase, rot: -1 },
+  { n: '04', name: 'Ceramic Plate', price: '₹799', img: IMG.plate, rot: 3 },
+  { n: '05', name: 'Clay Jug', price: '₹1,299', img: IMG.jug, rot: -2 },
+]
+
+const process = [
+  { n: '01', title: 'Sourcing', desc: 'Natural clay from the earth', img: IMG.clayRaw },
+  { n: '02', title: 'Shaping', desc: 'Guided by hand and intuition', img: IMG.shaping },
+  { n: '03', title: 'Firing', desc: 'Transformed by heat', img: IMG.firing },
+  { n: '04', title: 'Finishing', desc: 'Unique textures, for lasting beauty', img: IMG.finishing },
+]
+
+const collection = [
+  { n: '01', title: 'Mugs', sub: 'For quiet moments', img: IMG.mug, span: 'col-span-1' },
+  { n: '02', title: 'Plates & Bowls', sub: 'For shared tables', img: IMG.bowl, span: 'col-span-1' },
+  { n: '03', title: 'Planters', sub: 'For greener spaces', img: IMG.planter, span: 'col-span-1' },
+  { n: '04', title: 'Vases', sub: 'For meaningful corners', img: IMG.vase, span: 'col-span-1' },
+  { n: '05', title: 'Others', sub: 'Unique pieces', img: IMG.jug, span: 'col-span-1' },
+]
+
+const journal = [
+  { title: 'The Beauty in Imperfection', date: 'SEP 12, 2024', img: IMG.studio1 },
+  { title: 'Inside Our Firing Process', date: 'AUG 28, 2024', img: IMG.studio2 },
+  { title: 'Creating a Kinder, Slower Home', date: 'AUG 10, 2024', img: IMG.studio3 },
+]
+
+const badges = [
+  { icon: 'hand-icon', title: 'Handcrafted', sub: 'with Care' },
+  { icon: 'leaf', title: 'Sustainably', sub: 'Sourced Materials' },
+  { icon: 'heart', title: 'Timeless', sub: 'Design' },
+  { icon: 'truck', title: 'Worldwide', sub: 'Shipping' },
+]
+
+export default function HomePage() {
+  return (
+    <>
+      {/* HERO */}
+      <section className="relative bg-cream-100 pb-16">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 pt-6 lg:grid-cols-[1fr,1.1fr] lg:px-10">
+          <div className="pt-6">
+            <p className="text-[10px] uppercase tracking-widest-2 text-ink-800">Natural Materials · Timeless Objects</p>
+            <h1 className="display mt-6 text-[68px] leading-[0.95] text-ink-800 lg:text-[92px]">
+              FORMED<br/>BY EARTH.
+            </h1>
+            <p className="mt-6 max-w-md text-base leading-relaxed text-ink-700/85">
+              Handcrafted clay pieces for a more meaningful home. Rooted in nature, shaped by hands, made to last.
+            </p>
+            <Link href="/shop" className="btn-primary mt-8">
+              Shop the Collection <Icon name="arrow" className="h-3.5 w-3.5" />
+            </Link>
+          </div>
+
+          <div className="relative">
+            <img src={IMG.heroPot} alt="Handcrafted earthen vessel" className="h-[560px] w-full rounded-sm object-cover paper-edge" />
+            <p className="hand absolute -top-2 left-10 text-xl text-ink-800 rotate-[-6deg]">Raw earth shaped by human hands.</p>
+            <p className="hand absolute right-8 top-16 text-xl text-ink-800 rotate-[4deg]">Each piece carries a story</p>
+            <div className="absolute right-6 top-1/2 -translate-y-1/2 text-right text-[10px] uppercase tracking-widest-2 text-cream-50">
+              CLAY<br/>FIRE<br/>HANDS<br/><span className="mt-1 block h-px w-6 bg-cream-50 ml-auto" />
+            </div>
+            <p className="hand absolute bottom-4 right-6 text-lg text-cream-50 rotate-[-2deg]">Fig. 01<br/>Earthen Vessel<br/>c. 2024</p>
+          </div>
+        </div>
+
+        {/* Objects for a slower life strip */}
+        <div className="mx-auto mt-14 flex max-w-7xl items-center gap-8 px-6 lg:px-10">
+          <div className="flex items-start gap-3">
+            <Icon name="sprig" className="h-6 w-6 text-clay-600" />
+            <p className="text-[10px] uppercase tracking-widest-2 text-ink-800/80">Objects<br/>for a Slower<br/>Life</p>
+          </div>
+          <div className="flex flex-1 items-center gap-6 overflow-x-auto rounded-sm bg-cream-50 p-4 paper-edge">
+            {[IMG.mug, IMG.bowl, IMG.vase, IMG.plate, IMG.jug].map((src, i) => (
+              <img key={i} src={src} alt="" className="h-24 w-32 shrink-0 rounded-sm object-cover" />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CLAY ARCHIVE — polaroid grid */}
+      <section className="py-20">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <div>
+              <p className="eyebrow">The Clay Archive</p>
+              <h2 className="display mt-3 text-5xl leading-[0.95] text-ink-800 lg:text-6xl">Everyday<br/>Objects,<br/>Lasting Stories.</h2>
+            </div>
+            <Link href="/shop" className="btn-ghost">Explore All <Icon name="arrow" className="h-3.5 w-3.5" /></Link>
+          </div>
+
+          <div className="mt-12 grid grid-cols-2 gap-6 md:grid-cols-5">
+            {archive.map((a, i) => (
+              <div key={i} className="polaroid bg-cream-50 p-3 paper-edge" style={{ ['--rot']: `${a.rot}deg` }}>
+                <span className="absolute -left-2 -top-3 hand text-2xl text-ink-800">{a.n}</span>
+                <img src={a.img} alt={a.name} className="h-56 w-full object-cover" />
+                <div className="flex items-end justify-between p-2 pt-4">
+                  <div>
+                    <p className="hand text-2xl leading-none text-ink-800">{a.name}</p>
+                    <p className="mt-1 text-sm text-ink-800/70">{a.price}</p>
+                  </div>
+                  <button className="grid h-9 w-9 place-items-center rounded-full bg-rust-500 text-cream-50 hover:bg-rust-600">
+                    <Icon name="arrow" className="h-4 w-4" />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* EARTH FIRE HANDS */}
+      <section className="relative py-16">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 lg:grid-cols-[1fr,1.3fr] lg:px-10">
+          <div>
+            <p className="eyebrow">Our Philosophy</p>
+            <h2 className="display mt-3 text-6xl leading-[0.95] text-ink-800 lg:text-7xl">EARTH.<br/>FIRE.<br/>HANDS.</h2>
+            <div className="mt-6 flex items-start gap-4">
+              <div className="grid h-24 w-24 shrink-0 place-items-center rounded-full border border-clay-400/50 text-[9px] uppercase tracking-widest-2 text-clay-600">
+                <div className="text-center">Natural<br/>Honest<br/>Timeless</div>
+              </div>
+              <p className="max-w-md text-sm leading-relaxed text-ink-700/85">
+                From raw earth to finished form, each piece is a journey of transformation. We work with nature's oldest material to create objects that bring warmth, beauty and intention into everyday life.
+              </p>
+            </div>
+            <Link href="/about" className="mt-8 inline-flex items-center gap-2 text-xs font-medium tracking-widest-2 uppercase text-rust-500 hover:text-rust-600 border-b border-rust-500/40 pb-1">
+              Our Story <Icon name="arrow" className="h-3.5 w-3.5" />
+            </Link>
+          </div>
+          <div className="relative">
+            <img src={IMG.handsClay} alt="Hands shaping clay on a wheel" className="h-[460px] w-full rounded-sm object-cover paper-edge" />
+            <p className="hand absolute right-6 top-8 text-xl text-cream-50 rotate-[3deg]">Same materials.<br/>A brighter<br/>tomorrow.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* MAKING PROCESS — dark strip */}
+      <section className="relative overflow-hidden bg-moss-800 py-16 text-cream-100">
+        <Icon name="leaf" className="pointer-events-none absolute -bottom-4 -left-4 h-40 w-40 text-cream-100/10" />
+        <Icon name="leaf" className="pointer-events-none absolute -top-4 right-4 h-32 w-32 text-cream-100/10 rotate-180" />
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 md:grid-cols-[180px,1fr] lg:px-10">
+          <div>
+            <p className="text-[10px] uppercase tracking-widest-2 text-cream-100/60">The<br/>Making<br/>Process</p>
+            <span className="mt-3 block h-px w-8 bg-cream-100/60" />
+          </div>
+          <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
+            {process.map((p, i) => (
+              <div key={p.n} className="relative">
+                <div className="relative overflow-hidden rounded-sm">
+                  <img src={p.img} alt={p.title} className="h-32 w-full object-cover" />
+                </div>
+                <div className="mt-3 flex items-baseline gap-2">
+                  <span className="hand text-xl text-cream-100/80">{p.n}</span>
+                  <p className="font-serif text-lg text-cream-50">{p.title}</p>
+                </div>
+                <p className="mt-1 text-xs text-cream-100/70">{p.desc}</p>
+                {i < 3 && <span className="pointer-events-none absolute -right-4 top-14 text-cream-100/40"><Icon name="arrow" className="h-4 w-4" /></span>}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* MEANINGFUL HOME COLLECTION */}
+      <section className="py-20">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <div>
+              <p className="eyebrow">Our Collection</p>
+              <h2 className="display mt-3 text-5xl leading-[0.95] text-ink-800 lg:text-6xl">Objects for a More<br/>Meaningful Home.</h2>
+            </div>
+            <div className="flex items-end gap-8">
+              <p className="max-w-xs text-sm text-ink-700/80">Handcrafted ceramics designed to be lived with — in your kitchen, on your table, and throughout your home.</p>
+              <Link href="/shop" className="btn-ghost">Shop All <Icon name="arrow" className="h-3.5 w-3.5" /></Link>
+            </div>
+          </div>
+
+          <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-5">
+            {collection.map((c) => (
+              <Link key={c.title} href="/shop" className="group relative overflow-hidden rounded-sm bg-cream-50">
+                <img src={c.img} alt={c.title} className="h-72 w-full object-cover transition duration-500 group-hover:scale-105" />
+                <div className="absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-ink-800/70 via-transparent p-4 text-cream-50">
+                  <div>
+                    <p className="hand text-lg leading-none opacity-80">{c.n}</p>
+                    <p className="mt-1 text-lg font-medium tracking-wide uppercase">{c.title}</p>
+                    <p className="text-xs opacity-80">{c.sub}</p>
+                  </div>
+                  <span className="grid h-9 w-9 place-items-center rounded-full border border-cream-50/70">
+                    <Icon name="arrow" className="h-3.5 w-3.5" />
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FEATURED — EARTH VESSEL */}
+      <section className="py-16">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 lg:grid-cols-3 lg:px-10">
+          <div>
+            <p className="eyebrow">Featured Piece</p>
+            <h2 className="display mt-3 text-5xl leading-[0.95] text-ink-800">The Earth<br/>Vessel</h2>
+            <p className="mt-5 text-sm text-ink-700/85">
+              A sculptural form with raw texture and timeless presence. Each vessel is uniquely handcrafted, embracing the natural variations of clay and fire.
+            </p>
+            <div className="mt-6 flex items-center gap-4">
+              <button className="btn-primary">Add to Cart <Icon name="arrow" className="h-3.5 w-3.5" /></button>
+              <button className="btn-ghost">View Details <Icon name="arrow" className="h-3.5 w-3.5" /></button>
+            </div>
+          </div>
+
+          <div className="relative">
+            <img src={IMG.earthVessel} alt="The Earth Vessel featured piece" className="mx-auto h-[420px] w-full max-w-sm rounded-sm object-cover paper-edge" />
+            <div className="absolute -top-2 left-0 grid h-24 w-24 place-items-center rounded-full bg-cream-50 text-center paper-edge">
+              <p className="hand text-lg leading-tight text-ink-800">One of<br/>a kind</p>
+            </div>
+          </div>
+
+          <div>
+            <p className="eyebrow">Specifications</p>
+            <table className="mt-4 w-full text-sm">
+              <tbody className="divide-y divide-clay-400/30">
+                {[
+                  ['Material', 'Natural Clay'],
+                  ['Finish', 'Matte, Unglazed'],
+                  ['Dimensions', 'H 18 cm × W 22 cm'],
+                  ['Weight', '1.4 kg (approx)'],
+                  ['Care', 'Wipe with soft, dry cloth'],
+                ].map(([k, v]) => (
+                  <tr key={k}>
+                    <td className="py-2 pr-4 text-ink-800/70">{k}</td>
+                    <td className="py-2 text-ink-800">{v}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <div className="mt-5 flex items-end justify-between">
+              <svg viewBox="0 0 100 60" className="h-14 w-24 text-ink-800/70"><path d="M20 55 C 20 25, 80 25, 80 55" fill="none" stroke="currentColor" strokeWidth="1.5"/><line x1="20" y1="55" x2="80" y2="55" stroke="currentColor" strokeWidth="1.5" /></svg>
+              <p className="hand text-sm text-ink-800/70">Fig. 02<br/>The Earth Vessel</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* JOURNAL */}
+      <section className="py-16">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 lg:grid-cols-[1fr,2fr] lg:px-10">
+          <div>
+            <p className="eyebrow">From the Journal</p>
+            <h2 className="display mt-3 text-5xl leading-[0.95] text-ink-800">Notes from<br/>the Studio.</h2>
+            <Link href="/journal" className="btn-ghost mt-6">Read All <Icon name="arrow" className="h-3.5 w-3.5" /></Link>
+          </div>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+            {journal.map((j) => (
+              <article key={j.title} className="group">
+                <div className="overflow-hidden rounded-sm">
+                  <img src={j.img} alt={j.title} className="h-48 w-full object-cover transition duration-500 group-hover:scale-105" />
+                </div>
+                <p className="mt-4 text-lg font-serif text-ink-800">{j.title}</p>
+                <p className="mt-1 text-[10px] uppercase tracking-widest-2 text-ink-800/60">{j.date}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TRUST BADGES */}
+      <section className="border-t border-clay-400/20 py-10">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-6 md:grid-cols-4 lg:px-10">
+          {badges.map((b) => (
+            <div key={b.title} className="flex items-center gap-3">
+              <Icon name={b.icon} className="h-8 w-8 text-clay-600" />
+              <div>
+                <p className="text-sm font-serif text-ink-800">{b.title}</p>
+                <p className="text-xs text-ink-800/60">{b.sub}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </>
+  )
+}
