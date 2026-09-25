@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Icon } from '@/components/Icons'
 import IMG from '@/lib/img'
-import { Reveal, Stagger, StaggerItem, TiltedCard, MagneticButton, ImageZoom } from '@/components/Motion'
+import { Reveal, Stagger, StaggerItem, TiltedCard, MagneticButton, ImageZoom, Parallax, SplitText } from '@/components/Motion'
 
 // Map to page-friendly names — using specific clay-item photos
 const P = {
@@ -182,71 +182,93 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* EARTH FIRE HANDS */}
-      <section className="relative py-16">
+      {/* EARTH FIRE HANDS — parallax image + word-cascade heading */}
+      <section className="relative py-24">
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 lg:grid-cols-[1fr,1.3fr] lg:px-10">
           <div>
-            <p className="eyebrow">Our Philosophy</p>
-            <h2 className="display mt-3 text-6xl leading-[0.95] text-ink-800 lg:text-7xl">EARTH.<br/>FIRE.<br/>HANDS.</h2>
-            <div className="mt-6 flex items-start gap-4">
-              <div className="grid h-24 w-24 shrink-0 place-items-center rounded-full border border-clay-400/50 text-[9px] uppercase tracking-widest-2 text-clay-600">
-                <div className="text-center">Natural<br/>Honest<br/>Timeless</div>
+            <Reveal><p className="eyebrow">Our Philosophy</p></Reveal>
+            <h2 className="display mt-3 text-6xl leading-[0.95] text-ink-800 lg:text-7xl overflow-hidden">
+              <SplitText text="EARTH." by="word" className="block" />
+              <SplitText text="FIRE." by="word" delay={0.08} className="block" />
+              <SplitText text="HANDS." by="word" delay={0.16} className="block" />
+            </h2>
+            <Reveal delay={0.28}>
+              <div className="mt-6 flex items-start gap-4">
+                <div className="grid h-24 w-24 shrink-0 place-items-center rounded-full border border-clay-400/50 text-[9px] uppercase tracking-widest-2 text-clay-600">
+                  <div className="text-center">Natural<br/>Honest<br/>Timeless</div>
+                </div>
+                <p className="max-w-md text-[15px] leading-relaxed text-ink-700">
+                  From raw earth to finished form, each piece is a journey of transformation. We work with nature's oldest material to create objects that bring warmth, beauty and intention into everyday life.
+                </p>
               </div>
-              <p className="max-w-md text-[15px] leading-relaxed text-ink-700">
-                From raw earth to finished form, each piece is a journey of transformation. We work with nature's oldest material to create objects that bring warmth, beauty and intention into everyday life.
-              </p>
+            </Reveal>
+            <Reveal delay={0.36}>
+              <MagneticButton className="mt-8 inline-block" strength={0.2}>
+                <Link href="/about" className="inline-flex items-center gap-2 text-xs font-medium tracking-widest-2 uppercase text-rust-500 hover:text-rust-600 border-b border-rust-500/40 pb-1">
+                  Our Story <Icon name="arrow" className="h-3.5 w-3.5" />
+                </Link>
+              </MagneticButton>
+            </Reveal>
+          </div>
+          <Reveal delay={0.15} y={40}>
+            <div className="relative overflow-hidden">
+              <Parallax offset={40}>
+                <img src={P.handsClay} alt="Hands shaping clay on a wheel" className="h-[500px] w-full object-cover elev-3" />
+              </Parallax>
+              <p className="hand absolute right-6 top-8 text-xl text-ivory-50 rotate-[3deg]">Same materials.<br/>A brighter<br/>tomorrow.</p>
             </div>
-            <Link href="/about" className="mt-8 inline-flex items-center gap-2 text-xs font-medium tracking-widest-2 uppercase text-rust-500 hover:text-rust-600 border-b border-rust-500/40 pb-1">
-              Our Story <Icon name="arrow" className="h-3.5 w-3.5" />
-            </Link>
-          </div>
-          <div className="relative">
-            <img src={P.handsClay} alt="Hands shaping clay on a wheel" className="h-[460px] w-full rounded-sm object-cover paper-edge" />
-            <p className="hand absolute right-6 top-8 text-xl text-ivory-50 rotate-[3deg]">Same materials.<br/>A brighter<br/>tomorrow.</p>
-          </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* MAKING PROCESS — dark strip */}
-      <section className="relative overflow-hidden bg-forest-600 py-16 text-ivory-100">
+      {/* MAKING PROCESS — dark strip, staggered image reveal */}
+      <section className="relative overflow-hidden bg-forest-600 py-20 text-ivory-100">
         <Icon name="leaf" className="pointer-events-none absolute -bottom-4 -left-4 h-40 w-40 text-ivory-100/10" />
         <Icon name="leaf" className="pointer-events-none absolute -top-4 right-4 h-32 w-32 text-ivory-100/10 rotate-180" />
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 md:grid-cols-[180px,1fr] lg:px-10">
-          <div>
-            <p className="text-[10px] uppercase tracking-widest-2 text-ivory-100/60">The<br/>Making<br/>Process</p>
-            <span className="mt-3 block h-px w-8 bg-ivory-100/60" />
-          </div>
-          <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
+          <Reveal>
+            <div>
+              <p className="text-[10px] uppercase tracking-widest-2 text-ivory-100/60">The<br/>Making<br/>Process</p>
+              <span className="mt-3 block h-px w-8 bg-ivory-100/60" />
+            </div>
+          </Reveal>
+          <Stagger className="grid grid-cols-2 gap-6 md:grid-cols-4" gap={0.1}>
             {process.map((p, i) => (
-              <div key={p.n} className="relative">
-                <div className="relative overflow-hidden rounded-sm">
-                  <img src={p.img} alt={p.title} className="h-32 w-full object-cover" />
+              <StaggerItem key={p.n}>
+                <div className="group relative">
+                  <ImageZoom scale={1.1}>
+                    <img src={p.img} alt={p.title} className="h-36 w-full object-cover" />
+                  </ImageZoom>
+                  <div className="mt-3 flex items-baseline gap-2">
+                    <span className="hand text-xl text-ivory-100/80">{p.n}</span>
+                    <p className="font-serif text-lg text-ivory-50">{p.title}</p>
+                  </div>
+                  <p className="mt-1 text-xs text-ivory-100/70">{p.desc}</p>
+                  {i < 3 && <span className="pointer-events-none absolute -right-4 top-14 text-ivory-100/40"><Icon name="arrow" className="h-4 w-4" /></span>}
                 </div>
-                <div className="mt-3 flex items-baseline gap-2">
-                  <span className="hand text-xl text-ivory-100/80">{p.n}</span>
-                  <p className="font-serif text-lg text-ivory-50">{p.title}</p>
-                </div>
-                <p className="mt-1 text-xs text-ivory-100/70">{p.desc}</p>
-                {i < 3 && <span className="pointer-events-none absolute -right-4 top-14 text-ivory-100/40"><Icon name="arrow" className="h-4 w-4" /></span>}
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
 
       {/* MEANINGFUL HOME COLLECTION */}
-      <section className="py-20">
+      <section className="py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <div>
-              <p className="eyebrow">Our Collection</p>
-              <h2 className="display mt-3 text-5xl leading-[0.95] text-ink-800 lg:text-6xl">Objects for a More<br/>Meaningful Home.</h2>
+          <Reveal>
+            <div className="flex flex-wrap items-end justify-between gap-6">
+              <div>
+                <p className="eyebrow">Our Collection</p>
+                <h2 className="display mt-3 text-5xl leading-[0.95] text-ink-800 lg:text-6xl">Objects for a More<br/>Meaningful Home.</h2>
+              </div>
+              <div className="flex items-end gap-8">
+                <p className="max-w-xs text-[15px] leading-relaxed text-ink-700">Handcrafted ceramics designed to be lived with — in your kitchen, on your table, and throughout your home.</p>
+                <MagneticButton strength={0.2}>
+                  <Link href="/shop" className="btn-ghost">Shop All <Icon name="arrow" className="h-3.5 w-3.5" /></Link>
+                </MagneticButton>
+              </div>
             </div>
-            <div className="flex items-end gap-8">
-              <p className="max-w-xs text-[15px] leading-relaxed text-ink-700">Handcrafted ceramics designed to be lived with — in your kitchen, on your table, and throughout your home.</p>
-              <Link href="/shop" className="btn-ghost">Shop All <Icon name="arrow" className="h-3.5 w-3.5" /></Link>
-            </div>
-          </div>
+          </Reveal>
 
           <Stagger className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-5" gap={0.06}>
             {collection.map((c) => (
@@ -273,19 +295,23 @@ export default function HomePage() {
       </section>
 
       {/* FEATURED — EARTH VESSEL */}
-      <section className="py-16">
+      <section className="py-20">
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 lg:grid-cols-3 lg:px-10">
-          <div>
-            <p className="eyebrow">Featured Piece</p>
-            <h2 className="display mt-3 text-5xl leading-[0.95] text-ink-800">The Earth<br/>Vessel</h2>
-            <p className="mt-5 text-[15px] leading-relaxed text-ink-700">
-              A sculptural form with raw texture and timeless presence. Each vessel is uniquely handcrafted, embracing the natural variations of clay and fire.
-            </p>
-            <div className="mt-6 flex items-center gap-4">
-              <button className="btn-primary">Add to Cart <Icon name="arrow" className="h-3.5 w-3.5" /></button>
-              <button className="btn-ghost">View Details <Icon name="arrow" className="h-3.5 w-3.5" /></button>
+          <Reveal>
+            <div>
+              <p className="eyebrow">Featured Piece</p>
+              <h2 className="display mt-3 text-5xl leading-[0.95] text-ink-800">The Earth<br/>Vessel</h2>
+              <p className="mt-5 text-[15px] leading-relaxed text-ink-700">
+                A sculptural form with raw texture and timeless presence. Each vessel is uniquely handcrafted, embracing the natural variations of clay and fire.
+              </p>
+              <div className="mt-6 flex items-center gap-4">
+                <MagneticButton strength={0.22}>
+                  <button className="btn-primary">Add to Cart <Icon name="arrow" className="h-3.5 w-3.5" /></button>
+                </MagneticButton>
+                <button className="btn-ghost">View Details <Icon name="arrow" className="h-3.5 w-3.5" /></button>
+              </div>
             </div>
-          </div>
+          </Reveal>
 
           <div className="relative">
             <img src={P.earthVessel} alt="The Earth Vessel featured piece" className="mx-auto h-[420px] w-full max-w-sm rounded-sm object-cover paper-edge" />

@@ -223,4 +223,64 @@ export function ScrollProgress({ color = 'var(--terracotta)' }) {
   )
 }
 
+/**
+ * Parallax — child moves slower/faster than scroll based on offset.
+ * Wraps an image or block for a subtle depth effect on the hero.
+ */
+export function Parallax({ children, offset = 60, className = '' }) {
+  const ref = useRef(null)
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
+  const y = useTransform(scrollYProgress, [0, 1], [offset, -offset])
+  return (
+    <div ref={ref} className={`overflow-hidden ${className}`}>
+      <motion.div style={{ y }} className="h-full w-full">{children}</motion.div>
+    </div>
+  )
+}
+
+/**
+ * PageTransition — fades and slides pages in on route change.
+ * Wrap a page's root return in <PageTransition>.
+ */
+export function PageTransition({ children }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+    >
+      {children}
+    </motion.div>
+  )
+}
+
+/**
+ * SplitText — reveals each word or letter on scroll with a spring cascade.
+ */
+export function SplitText({ text, by = 'word', className = '', delay = 0 }) {
+  const chunks = by === 'word' ? text.split(' ') : text.split('')
+  return (
+    <motion.span
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: '-40px' }}
+      variants={{ show: { transition: { staggerChildren: 0.04, delayChildren: delay } } }}
+      className={className}
+    >
+      {chunks.map((chunk, i) => (
+        <motion.span
+          key={i}
+          className="inline-block"
+          variants={{
+            hidden: { y: '110%', opacity: 0 },
+            show:   { y: 0, opacity: 1, transition: { type: 'spring', stiffness: 260, damping: 24 } },
+          }}
+        >
+          {chunk}{by === 'word' && i < chunks.length - 1 ? ' ' : ''}
+        </motion.span>
+      ))}
+    </motion.span>
+  )
+}
+
 export default Reveal
