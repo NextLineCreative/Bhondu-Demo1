@@ -128,37 +128,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* BOOK NOW */}
-      <section className="relative overflow-hidden bg-wine-700 py-20 text-cream-100">
-        <img src={IMG.polish} alt="" className="absolute inset-0 h-full w-full object-cover opacity-20" />
-        <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 lg:grid-cols-2 lg:px-10">
-          <div>
-            <p className="text-xs uppercase tracking-widest-2 text-gold-400">Book Now</p>
-            <h2 className="mt-3 font-serif text-5xl leading-tight">
-              Your Next<br/>
-              Look <span className="script text-gold-400 text-6xl">Awaits</span>
-            </h2>
-            <p className="mt-4 max-w-md text-cream-200/80">
-              Choose your service, pick a time, and let us take care of the rest.
-            </p>
-          </div>
-          <div className="space-y-4 rounded-3xl bg-cream-100/10 p-6 backdrop-blur">
-            <div className="flex items-center gap-3 rounded-full bg-cream-100 px-5 py-3 text-wine-800">
-              <Icon name="calendar" className="h-4 w-4" />
-              <span className="flex-1 text-sm">Select Service</span>
-              <Icon name="chevron" className="h-4 w-4" />
-            </div>
-            <div className="flex items-center gap-3 rounded-full bg-cream-100 px-5 py-3 text-wine-800">
-              <Icon name="calendar" className="h-4 w-4" />
-              <span className="flex-1 text-sm">Select Date & Time</span>
-              <Icon name="chevron" className="h-4 w-4" />
-            </div>
-            <Link href="/contact" className="flex w-full items-center justify-center gap-2 rounded-full bg-cream-200 px-5 py-3 text-sm font-medium text-wine-800 hover:bg-cream-100">
-              Book Appointment <Icon name="arrow" className="h-4 w-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
     </>
   )
 }
