@@ -49,7 +49,7 @@ export default function GalleryPage() {
             </p>
           </div>
           <div className="relative">
-            <div className="card-shape overflow-hidden bg-wine-700 shadow-xl">
+            <div className="blob-hero-c overflow-hidden bg-wine-700 shadow-xl">
               <img src={IMG.heroHand} alt="Featured nail art" className="h-[420px] w-full object-cover" />
             </div>
             <p className="script absolute right-6 top-6 text-3xl text-cream-100">Real Nails<br/>Real Stories</p>

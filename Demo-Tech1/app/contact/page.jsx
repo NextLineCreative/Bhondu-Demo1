@@ -46,7 +46,7 @@ export default function ContactPage() {
           </div>
 
           <div className="relative">
-            <div className="card-shape overflow-hidden bg-wine-700 shadow-xl">
+            <div className="blob-hero-a overflow-hidden bg-wine-700 shadow-xl">
               <img src={IMG.heroHand} alt="Elegant nails" className="h-[440px] w-full object-cover" />
             </div>
             <p className="script absolute right-6 top-8 text-3xl text-cream-100">Beautiful<br/>Nails<br/>Brings You<br/>Closer</p>

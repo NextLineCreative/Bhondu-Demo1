@@ -68,7 +68,7 @@ export default function ServicesPage() {
           </div>
 
           <div className="relative">
-            <div className="card-shape overflow-hidden bg-wine-700 shadow-xl">
+            <div className="blob-hero-b overflow-hidden bg-wine-700 shadow-xl">
               <img src={IMG.heroHand} alt="Elegant nail extensions" className="h-[440px] w-full object-cover" />
             </div>
             <p className="script absolute bottom-8 right-8 text-3xl text-cream-100">Beautiful Nails<br/>Brighter Days</p>

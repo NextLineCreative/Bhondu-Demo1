@@ -69,7 +69,7 @@ export default function AboutPage() {
             </div>
           </div>
           <div className="relative">
-            <div className="card-shape overflow-hidden shadow-xl">
+            <div className="blob-hero-d overflow-hidden shadow-xl">
               <img src={IMG.heroHand} alt="Luxe nails feature" className="h-[440px] w-full object-cover" />
             </div>
             <p className="script absolute right-6 top-8 text-3xl text-wine-800">Confidence<br/>Looks<br/>Beautiful<br/>on You</p>

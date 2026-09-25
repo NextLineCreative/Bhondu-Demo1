@@ -59,7 +59,7 @@ export default function HomePage() {
           </div>
 
           <div className="relative">
-            <div className="card-shape overflow-hidden bg-wine-700 shadow-2xl">
+            <div className="blob-hero-a overflow-hidden bg-wine-700 shadow-2xl">
               <img src={IMG.heroHand} alt="Beautiful nail extensions" className="h-[520px] w-full object-cover mix-blend-luminosity opacity-95" />
             </div>
             <div className="absolute -top-4 left-6 grid h-24 w-24 place-items-center rounded-full bg-wine-800 text-cream-100">

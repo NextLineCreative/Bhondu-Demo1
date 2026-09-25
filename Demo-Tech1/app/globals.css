@@ -36,6 +36,12 @@ html, body {
   .blob {
     border-radius: 46% 54% 52% 48% / 50% 46% 54% 50%;
   }
+  /* Strongly asymmetric hero silhouettes — extreme lopsided radii,
+     no rotation so absolute overlays (play buttons, script text) stay put. */
+  .blob-hero-a { border-radius: 78% 22% 62% 38% / 66% 34% 70% 30%; }
+  .blob-hero-b { border-radius: 28% 72% 40% 60% / 36% 66% 34% 64%; }
+  .blob-hero-c { border-radius: 60% 40% 26% 74% / 34% 74% 26% 66%; }
+  .blob-hero-d { border-radius: 38% 62% 78% 22% / 70% 38% 62% 30%; }
 }
 
 /* Wavy organic shape helper */
