@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Icon } from '@/components/Icons'
 import IMG from '@/lib/img'
-import { Reveal, Stagger, StaggerItem, TiltedCard } from '@/components/Motion'
+import { Reveal, Stagger, StaggerItem, TiltedCard, MagneticButton, ImageZoom } from '@/components/Motion'
 
 // Map to page-friendly names — using specific clay-item photos
 const P = {
@@ -65,46 +65,45 @@ const badges = [
 export default function HomePage() {
   return (
     <>
-      {/* HERO — editorial 50/50 with organic ivory shapes + pottery still-life */}
+      {/* HERO — single focal point, generous negative space, editorial rhythm */}
       <section className="grain relative overflow-hidden" style={{ background: 'var(--ivory)' }}>
         <div className="relative grid min-h-[720px] grid-cols-1 lg:grid-cols-2">
-          {/* Organic cream/sand blobs behind the LEFT panel */}
+          {/* Soft cream blob behind copy — a single quiet accent, not two competing shapes */}
           <div className="pointer-events-none absolute inset-0 -z-0 lg:right-1/2">
-            <div className="blob-cream absolute -left-32 -top-24 h-[560px] w-[640px] opacity-90" />
-            <div className="blob-sand absolute -left-24 top-72 h-[400px] w-[460px] opacity-60" />
+            <div className="blob-cream absolute -left-40 top-24 h-[540px] w-[620px] opacity-70" />
           </div>
 
-          {/* LEFT: copy */}
-          <div className="relative z-10 flex flex-col justify-center px-6 py-20 lg:px-16 lg:py-28">
-            <p className="eyebrow">Natural Materials · Timeless Objects</p>
+          {/* LEFT: copy — one heading, one paragraph, one CTA. That's it. */}
+          <div className="relative z-10 flex flex-col justify-center px-6 py-24 lg:px-20 lg:py-32">
+            <Reveal>
+              <p className="eyebrow">Natural Materials · Timeless Objects</p>
+            </Reveal>
 
-            <h1 className="display mt-10 text-[76px] lg:text-[124px]" style={{ lineHeight: 0.78 }}>
-              FORMED<br/>BY<br/>EARTH.
-            </h1>
+            <Reveal delay={0.08}>
+              <h1 className="display mt-10 text-[76px] lg:text-[132px]" style={{ lineHeight: 0.78 }}>
+                FORMED<br/>BY EARTH.
+              </h1>
+            </Reveal>
 
-            <p className="mt-10 max-w-md text-[17px] leading-[1.7]" style={{ color: 'var(--text-muted)' }}>
-              Handcrafted clay pieces for a more meaningful home. Rooted in nature, shaped by hands, made to last.
-            </p>
+            <Reveal delay={0.16}>
+              <p className="mt-10 max-w-md text-[17px] leading-[1.7]" style={{ color: 'var(--text-muted)' }}>
+                Handcrafted clay pieces for a more meaningful home. Shaped by hands, made to last.
+              </p>
+            </Reveal>
 
-            <Link href="/shop" className="btn-primary mt-12 self-start">
-              <span>Shop the Collection</span>
-              <Icon name="arrow" className="h-4 w-4" />
-            </Link>
-
-            <p className="hand relative z-10 mt-16 max-w-[220px] rotate-[-3deg] text-xl leading-tight" style={{ color: 'var(--text-dark)' }}>
-              Rooted in earth<br/>&nbsp;— made by hand.
-            </p>
-
-            {/* Bottom-left botanical accent */}
-            <svg className="pointer-events-none absolute bottom-8 left-6 h-28 w-28 opacity-45" viewBox="0 0 100 100" fill="none">
-              <path d="M20 90 Q 40 60 30 30 Q 55 45 70 25 Q 85 40 65 70 Q 55 85 20 90 Z" stroke="var(--botanical)" strokeWidth="1.2" fill="none" />
-              <path d="M30 30 Q 45 55 50 80" stroke="var(--botanical)" strokeWidth="0.8" fill="none" />
-            </svg>
+            <Reveal delay={0.24}>
+              <MagneticButton className="mt-14 inline-block self-start" strength={0.25}>
+                <Link href="/shop" className="btn-primary">
+                  <span>Shop the Collection</span>
+                  <Icon name="arrow" className="h-4 w-4" />
+                </Link>
+              </MagneticButton>
+            </Reveal>
           </div>
 
-          {/* RIGHT: pottery scene on warm-brown gradient */}
+          {/* RIGHT: pottery scene — one hero photograph, one editorial note, one botanical */}
           <div
-            className="relative z-10 min-h-[520px] overflow-hidden lg:min-h-[720px]"
+            className="relative z-10 min-h-[560px] overflow-hidden lg:min-h-[720px]"
             style={{ background: 'linear-gradient(135deg, #9A573B 0%, #7C3F29 100%)' }}
           >
             <img
@@ -116,45 +115,33 @@ export default function HomePage() {
             {/* Unifying warm overlay */}
             <div
               className="pointer-events-none absolute inset-0"
-              style={{ background: 'linear-gradient(135deg, rgba(154,87,59,0.35) 0%, rgba(124,63,41,0.55) 100%)' }}
+              style={{ background: 'linear-gradient(135deg, rgba(154,87,59,0.30) 0%, rgba(124,63,41,0.55) 100%)' }}
             />
-
-            {/* Botanical accents on the right panel */}
-            <svg className="pointer-events-none absolute right-6 top-10 h-32 w-32 opacity-50" viewBox="0 0 100 100" fill="none">
-              <path d="M10 20 Q 30 10 50 20 Q 40 40 20 50 Q 5 40 10 20 Z" fill="var(--botanical)" opacity="0.55" />
-              <path d="M55 15 Q 75 10 90 25 Q 80 45 60 45 Q 50 30 55 15 Z" fill="var(--botanical)" opacity="0.35" />
+            {/* Single botanical accent, corner-placed */}
+            <svg className="pointer-events-none absolute bottom-8 left-8 h-28 w-28 opacity-45" viewBox="0 0 100 100" fill="none">
+              <path d="M15 25 Q 40 15 55 30 Q 45 55 25 55 Q 8 45 15 25 Z" fill="var(--botanical)" opacity="0.5" />
+              <path d="M55 30 Q 70 45 80 70" stroke="var(--botanical)" strokeWidth="1" fill="none" opacity="0.55" />
             </svg>
-            <svg className="pointer-events-none absolute bottom-6 left-6 h-32 w-32 rotate-180 opacity-45" viewBox="0 0 100 100" fill="none">
-              <path d="M15 25 Q 40 15 55 30 Q 45 55 25 55 Q 8 45 15 25 Z" fill="var(--botanical)" opacity="0.55" />
-            </svg>
-
-            {/* Editorial notes on the pottery panel */}
-            <p className="hand absolute right-10 top-16 max-w-[200px] rotate-[3deg] text-2xl leading-tight text-cream">
-              Each piece<br/>carries a story.
-            </p>
-            <p className="hand absolute bottom-24 left-8 rotate-[-2deg] text-xl leading-tight text-cream">
+            {/* One editorial note only */}
+            <p className="hand absolute bottom-10 right-10 rotate-[-2deg] text-right text-xl leading-tight text-cream/90">
               Fig. 01<br/>Earthen Vessel<br/>c. 2024
             </p>
-
-            {/* Vertical brand sidebar */}
-            <div className="absolute right-4 top-1/2 -translate-y-1/2 text-right text-[11px] font-medium uppercase tracking-[0.28em] text-cream/90">
-              <p>Clay</p><p>Fire</p><p>Hands</p><p>Home</p>
-              <span className="ml-auto mt-2 block h-px w-8 bg-cream/70" />
-            </div>
           </div>
         </div>
 
-        {/* Objects strip below hero */}
-        <div className="relative z-10 mx-auto grid max-w-none grid-cols-1 items-center gap-6 px-6 pb-14 pt-4 lg:grid-cols-2 lg:gap-0 lg:px-16">
+        {/* Objects strip — quiet, straddles the divide */}
+        <div className="relative z-10 mx-auto grid max-w-none grid-cols-1 items-center gap-6 px-6 pb-16 pt-6 lg:grid-cols-2 lg:gap-0 lg:px-20">
           <div className="flex items-start gap-3">
             <Icon name="sprig" className="h-6 w-6 shrink-0" style={{ color: 'var(--terracotta)' }} />
             <p className="text-[11px] font-semibold uppercase tracking-[0.28em] leading-[1.5]" style={{ color: 'var(--text-dark)' }}>
               Objects<br/>for a Slower<br/>Life
             </p>
           </div>
-          <div className="relative -mx-2 flex items-center gap-4 bg-cream p-4 shadow-[0_2px_20px_rgba(36,21,14,0.08)] lg:mx-0 lg:-ml-32 lg:mr-6">
+          <div className="relative -mx-2 flex items-center gap-4 bg-cream p-5 elev-3 lg:mx-0 lg:-ml-32 lg:mr-6">
             {[P.mug, P.cup, P.bowl, P.vase, P.plate, P.jug].map((src, i) => (
-              <img key={i} src={src} alt="" className="h-20 w-24 shrink-0 object-cover md:h-24 md:w-32" />
+              <ImageZoom key={i} className="shrink-0" scale={1.08}>
+                <img src={src} alt="" className="h-20 w-24 object-cover md:h-24 md:w-32" />
+              </ImageZoom>
             ))}
           </div>
         </div>

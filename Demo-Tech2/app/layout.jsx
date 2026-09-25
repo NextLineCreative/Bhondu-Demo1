@@ -1,6 +1,7 @@
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import { ScrollProgress } from '@/components/Motion'
 
 export const metadata = {
   title: 'Clay Pot — Handcrafted Ceramics',
@@ -11,6 +12,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="min-h-screen bg-ivory-100 text-ink-800">
+        <ScrollProgress />
         <Navbar />
         <main>{children}</main>
         <Footer />

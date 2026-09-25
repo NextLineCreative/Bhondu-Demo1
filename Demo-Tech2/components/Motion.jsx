@@ -1,6 +1,6 @@
 'use client'
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
-import { useRef } from 'react'
+import { motion, useMotionValue, useSpring, useTransform, useScroll } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
 
 /**
  * Reveal — fade + slide-up when the element enters the viewport.
@@ -124,6 +124,102 @@ export function Marquee({ children, duration = 30, className = '' }) {
         {children}
       </motion.div>
     </div>
+  )
+}
+
+/**
+ * MagneticButton — attracts the pointer within a threshold, snapping back
+ * when the cursor leaves. Wraps any child clickable element.
+ */
+export function MagneticButton({ children, strength = 0.35, className = '' }) {
+  const ref = useRef(null)
+  const x = useSpring(0, { stiffness: 200, damping: 15 })
+  const y = useSpring(0, { stiffness: 200, damping: 15 })
+
+  const handleMove = (e) => {
+    const r = ref.current?.getBoundingClientRect()
+    if (!r) return
+    const dx = e.clientX - (r.left + r.width / 2)
+    const dy = e.clientY - (r.top + r.height / 2)
+    x.set(dx * strength)
+    y.set(dy * strength)
+  }
+  const reset = () => { x.set(0); y.set(0) }
+
+  return (
+    <motion.div ref={ref} onMouseMove={handleMove} onMouseLeave={reset} style={{ x, y }} className={className}>
+      {children}
+    </motion.div>
+  )
+}
+
+/**
+ * DecoderText — scrambles letters, then resolves to the final text on mount /
+ * when it enters the viewport. Cursor-forward feel for editorial headings.
+ */
+const GLYPHS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+export function DecoderText({ text, className = '', speed = 50 }) {
+  const [display, setDisplay] = useState(text)
+  const [inView, setInView] = useState(false)
+  const ref = useRef(null)
+
+  useEffect(() => {
+    if (typeof IntersectionObserver === 'undefined' || !ref.current) return
+    const io = new IntersectionObserver(([e]) => e.isIntersecting && setInView(true), { threshold: 0.3 })
+    io.observe(ref.current)
+    return () => io.disconnect()
+  }, [])
+
+  useEffect(() => {
+    if (!inView) return
+    let step = 0
+    const total = text.length * 2
+    const id = setInterval(() => {
+      setDisplay(
+        text.split('').map((ch, i) => {
+          if (i < step / 2) return ch
+          if (ch === ' ' || ch === '\n') return ch
+          return GLYPHS[Math.floor((step + i) % GLYPHS.length)]
+        }).join('')
+      )
+      step++
+      if (step > total) { clearInterval(id); setDisplay(text) }
+    }, speed)
+    return () => clearInterval(id)
+  }, [inView, text, speed])
+
+  return <span ref={ref} className={className}>{display}</span>
+}
+
+/**
+ * ImageZoom — wraps an image (or any block) and applies a smooth scale
+ * transform on hover. Uses transform-gpu for cheap frames.
+ */
+export function ImageZoom({ children, scale = 1.06, className = '' }) {
+  return (
+    <div className={`overflow-hidden ${className}`}>
+      <motion.div
+        whileHover={{ scale }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        className="h-full w-full"
+      >
+        {children}
+      </motion.div>
+    </div>
+  )
+}
+
+/**
+ * ScrollProgress — a thin bar pinned to the top of the viewport that fills
+ * as the user scrolls the page. Terracotta by default.
+ */
+export function ScrollProgress({ color = 'var(--terracotta)' }) {
+  const { scrollYProgress } = useScroll()
+  return (
+    <motion.div
+      style={{ scaleX: scrollYProgress, transformOrigin: '0% 0%', background: color }}
+      className="fixed left-0 right-0 top-0 z-50 h-[2px]"
+    />
   )
 }
 
