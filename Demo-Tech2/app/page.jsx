@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { Icon } from '@/components/Icons'
 import IMG from '@/lib/img'
 import { Reveal, Stagger, StaggerItem, TiltedCard, MagneticButton, ImageZoom, Parallax, SplitText } from '@/components/Motion'
+import TextLoop from '@/components/TextLoop'
+import SkewedCarousel from '@/components/SkewedCarousel'
 
 // Map to page-friendly names — using specific clay-item photos
 const P = {
@@ -221,6 +223,25 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* TEXTLOOP — animated marquee divider (React Bits) */}
+      <section className="relative -my-6" style={{ background: 'var(--ivory)' }}>
+        <TextLoop
+          text="Handcrafted · Ceramics · Made by Hand · Clay Pot"
+          shape="wave"
+          speed={70}
+          separator="✦"
+          curviness={70}
+          fontSize={42}
+          fontWeight={700}
+          letterSpacing={4}
+          color="#F7EEDF"
+          ribbon
+          ribbonColor="#A95738"
+          ribbonWidth={72}
+          pauseOnHover
+        />
+      </section>
+
       {/* MAKING PROCESS — dark strip, staggered image reveal */}
       <section className="relative overflow-hidden bg-forest-600 py-20 text-ivory-100">
         <Icon name="leaf" className="pointer-events-none absolute -bottom-4 -left-4 h-40 w-40 text-ivory-100/10" />
@@ -293,6 +314,15 @@ export default function HomePage() {
           </Stagger>
         </div>
       </section>
+
+      {/* SKEWED CAROUSEL — tilted marquee of collection cards */}
+      <SkewedCarousel
+        items={collection.map((c) => ({ img: c.img, title: c.title, sub: c.sub }))}
+        speed={35}
+        skew={-6}
+        rotate={-3}
+        cardWidth={300}
+      />
 
       {/* FEATURED — EARTH VESSEL */}
       <section className="py-20">
