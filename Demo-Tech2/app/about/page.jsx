@@ -1,15 +1,16 @@
 import Link from 'next/link'
 import { Icon } from '@/components/Icons'
+import IMG from '@/lib/img'
 
-const IMG = {
-  studioHero: 'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=1400&q=80',
-  kiln: 'https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&w=900&q=80',
-  hands: 'https://images.unsplash.com/photo-1493106641515-6b5631de4bb9?auto=format&fit=crop&w=900&q=80',
-  clay: 'https://images.unsplash.com/photo-1551772804-b90f4b4ff9de?auto=format&fit=crop&w=900&q=80',
-  founder: 'https://images.unsplash.com/photo-1607779097040-26e80aa78e66?auto=format&fit=crop&w=600&q=80',
-  potter1: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80',
-  potter2: 'https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=600&q=80',
-  potter3: 'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&w=600&q=80',
+const A = {
+  studioHero: IMG.studioHero,
+  kiln: IMG.firing,
+  hands: IMG.workshop,
+  clay: IMG.clayRaw,
+  manifesto: IMG.manifesto,
+  potter1: IMG.potter1,
+  potter2: IMG.potter2,
+  potter3: IMG.potter3,
 }
 
 const values = [
@@ -20,9 +21,9 @@ const values = [
 ]
 
 const team = [
-  { name: 'Anaya Rao', role: 'Founder & Lead Potter', img: IMG.potter1 },
-  { name: 'Kabir Sen', role: 'Kiln Master', img: IMG.potter2 },
-  { name: 'Meera Iyer', role: 'Studio Designer', img: IMG.potter3 },
+  { name: 'Anaya Rao', role: 'Founder & Lead Potter', img: A.potter1 },
+  { name: 'Kabir Sen', role: 'Kiln Master', img: A.potter2 },
+  { name: 'Meera Iyer', role: 'Studio Designer', img: A.potter3 },
 ]
 
 export default function AboutPage() {
@@ -39,7 +40,7 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="relative">
-            <img src={IMG.studioHero} alt="Inside the studio" className="h-[520px] w-full rounded-sm object-cover paper-edge" />
+            <img src={A.studioHero} alt="Inside the studio" className="h-[520px] w-full rounded-sm object-cover paper-edge" />
             <p className="hand absolute -top-2 left-10 rotate-[-4deg] text-xl text-ink-800">Where clay becomes character.</p>
             <p className="hand absolute right-6 bottom-6 rotate-[3deg] text-lg text-cream-50">Est. 2024<br/>Studio No. 04</p>
           </div>
@@ -52,13 +53,16 @@ export default function AboutPage() {
           <div>
             <p className="eyebrow">Manifesto</p>
             <span className="mt-3 block h-px w-16 bg-clay-500" />
+            <img src={A.manifesto} alt="Handmade ceramic detail" className="mt-6 h-64 w-full rounded-sm object-cover paper-edge" />
           </div>
           <div>
             <h2 className="display text-4xl leading-tight text-ink-800 lg:text-5xl">A slower kind of beauty — for a life lived with intention.</h2>
+            <img src={A.hands} alt="Hands shaping clay" className="mt-8 h-56 w-full rounded-sm object-cover paper-edge" />
           </div>
-          <div className="space-y-4 text-sm leading-relaxed text-ink-700/85">
+          <div className="space-y-4 text-[15px] leading-relaxed text-ink-700">
             <p>We believe the objects we live with should tell a story. That a mug should feel right in the hand. That a bowl should carry meaning, not just food. That a vase should hold the memory of the potter as much as the flowers within it.</p>
             <p>Every piece we make is a small resistance against a disposable world — a quiet reminder that things made with love are made to last.</p>
+            <img src={A.kiln} alt="Kiln firing" className="mt-4 h-48 w-full rounded-sm object-cover paper-edge" />
           </div>
         </div>
       </section>
@@ -66,10 +70,10 @@ export default function AboutPage() {
       {/* IMAGE GRID */}
       <section className="pb-10">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-4 px-6 md:grid-cols-4 lg:px-10">
-          <img src={IMG.clay} alt="Raw clay" className="h-64 w-full rounded-sm object-cover paper-edge" />
-          <img src={IMG.hands} alt="Hands shaping" className="h-64 w-full rounded-sm object-cover paper-edge mt-8" />
-          <img src={IMG.kiln} alt="Kiln firing" className="h-64 w-full rounded-sm object-cover paper-edge" />
-          <img src={IMG.studioHero} alt="Studio" className="h-64 w-full rounded-sm object-cover paper-edge mt-8" />
+          <img src={A.clay} alt="Raw clay" className="h-64 w-full rounded-sm object-cover paper-edge" />
+          <img src={A.hands} alt="Hands shaping" className="h-64 w-full rounded-sm object-cover paper-edge mt-8" />
+          <img src={A.kiln} alt="Kiln firing" className="h-64 w-full rounded-sm object-cover paper-edge" />
+          <img src={A.studioHero} alt="Studio" className="h-64 w-full rounded-sm object-cover paper-edge mt-8" />
         </div>
       </section>
 

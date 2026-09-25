@@ -1,26 +1,20 @@
 import Link from 'next/link'
 import { Icon } from '@/components/Icons'
-
-const IMG = {
-  mug: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=600&q=80',
-  bowl: 'https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=600&q=80',
-  vase: 'https://images.unsplash.com/photo-1578500494198-246f612d3b3d?auto=format&fit=crop&w=600&q=80',
-  plate: 'https://images.unsplash.com/photo-1592837827234-a95a14ca7bfa?auto=format&fit=crop&w=600&q=80',
-  jug: 'https://images.unsplash.com/photo-1610701596061-2ecf227e85b2?auto=format&fit=crop&w=600&q=80',
-  planter: 'https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=600&q=80',
-  pot: 'https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=600&q=80',
-  set: 'https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&w=1200&q=80',
-}
+import IMG from '@/lib/img'
 
 const products = [
-  { n: '01', name: 'Everyday Mug', price: '₹599', tag: 'Best Seller', img: IMG.mug },
-  { n: '02', name: 'Serving Bowl', price: '₹899', tag: 'New', img: IMG.bowl },
-  { n: '03', name: 'Handmade Vase', price: '₹699', img: IMG.vase },
-  { n: '04', name: 'Ceramic Plate', price: '₹799', img: IMG.plate },
-  { n: '05', name: 'Clay Jug', price: '₹1,299', img: IMG.jug },
-  { n: '06', name: 'Terracotta Planter', price: '₹849', img: IMG.planter },
-  { n: '07', name: 'Storage Pot', price: '₹1,099', img: IMG.pot },
-  { n: '08', name: 'Espresso Cup', price: '₹499', tag: 'Popular', img: IMG.mug },
+  { n: '01', name: 'Everyday Mug',      price: '₹599',   tag: 'Best Seller', img: IMG.mug1 },
+  { n: '02', name: 'Serving Bowl',      price: '₹899',   tag: 'New',         img: IMG.bowl1 },
+  { n: '03', name: 'Handmade Vase',     price: '₹699',                        img: IMG.vase1 },
+  { n: '04', name: 'Ceramic Plate',     price: '₹799',                        img: IMG.plate1 },
+  { n: '05', name: 'Clay Jug',          price: '₹1,299',                      img: IMG.jug1 },
+  { n: '06', name: 'Terracotta Planter',price: '₹849',                        img: IMG.planter1 },
+  { n: '07', name: 'Storage Pot',       price: '₹1,099',                      img: IMG.pot1 },
+  { n: '08', name: 'Espresso Cup',      price: '₹499',   tag: 'Popular',      img: IMG.mug2 },
+  { n: '09', name: 'Ridged Bowl',       price: '₹999',                        img: IMG.bowl2 },
+  { n: '10', name: 'Slim Vase',         price: '₹749',                        img: IMG.vase2 },
+  { n: '11', name: 'Dinner Plate',      price: '₹599',                        img: IMG.plate2 },
+  { n: '12', name: 'Ceramic Planter',   price: '₹899',   tag: 'Limited',      img: IMG.planter2 },
 ]
 
 const categories = ['All', 'Mugs', 'Plates & Bowls', 'Vases', 'Planters', 'Others']
@@ -35,7 +29,7 @@ export default function ShopPage() {
           <div className="mt-6 grid grid-cols-1 items-end gap-10 lg:grid-cols-[1.2fr,1fr]">
             <h1 className="display text-6xl leading-[0.95] text-ink-800 lg:text-8xl">Handcrafted<br/>Objects.<br/>Lasting Worth.</h1>
             <div className="relative">
-              <img src={IMG.set} alt="Ceramic set" className="h-56 w-full rounded-sm object-cover paper-edge" />
+              <img src={IMG.studioSet} alt="Ceramic set" className="h-56 w-full rounded-sm object-cover paper-edge" />
               <p className="hand absolute -top-2 right-4 rotate-[-3deg] text-xl text-ink-800">Made to be loved daily.</p>
             </div>
           </div>

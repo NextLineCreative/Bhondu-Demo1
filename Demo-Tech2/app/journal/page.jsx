@@ -1,14 +1,15 @@
 import Link from 'next/link'
 import { Icon } from '@/components/Icons'
+import IMG from '@/lib/img'
 
-const IMG = {
-  hero: 'https://images.unsplash.com/photo-1493106641515-6b5631de4bb9?auto=format&fit=crop&w=1400&q=80',
-  a: 'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=800&q=80',
-  b: 'https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&w=800&q=80',
-  c: 'https://images.unsplash.com/photo-1551772804-b90f4b4ff9de?auto=format&fit=crop&w=800&q=80',
-  d: 'https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=800&q=80',
-  e: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=800&q=80',
-  f: 'https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=800&q=80',
+const J = {
+  hero: IMG.journalFeature,
+  a: IMG.journalA,
+  b: IMG.journalB,
+  c: IMG.journalC,
+  d: IMG.journalD,
+  e: IMG.journalE,
+  f: IMG.journalF,
 }
 
 const featured = {
@@ -16,16 +17,16 @@ const featured = {
   excerpt: 'Wabi-sabi teaches us that beauty lives in the cracks, the asymmetries, the marks of time. A short essay on why our pieces are never quite the same.',
   date: 'Sep 12, 2024',
   category: 'Philosophy',
-  img: IMG.hero,
+  img: J.hero,
 }
 
 const posts = [
-  { title: 'Inside Our Firing Process', excerpt: 'A look at the kiln — the fire that transforms every piece.', date: 'AUG 28, 2024', category: 'Studio', img: IMG.a },
-  { title: 'Creating a Kinder, Slower Home', excerpt: 'Small changes, quiet joys, and objects that matter.', date: 'AUG 10, 2024', category: 'Living', img: IMG.b },
-  { title: 'From Earth to Table', excerpt: 'The journey of a piece — from raw clay to your dining room.', date: 'JUL 22, 2024', category: 'Process', img: IMG.c },
-  { title: 'Why We Fire With Wood', excerpt: 'The character that only a wood-fired kiln can give.', date: 'JUL 05, 2024', category: 'Craft', img: IMG.d },
-  { title: 'Notes on Glaze & Texture', excerpt: 'A designer\'s guide to the surfaces we love.', date: 'JUN 18, 2024', category: 'Design', img: IMG.e },
-  { title: 'The Studio Journal, Vol. 1', excerpt: 'Behind-the-scenes moments from our first year.', date: 'MAY 30, 2024', category: 'Studio', img: IMG.f },
+  { title: 'Inside Our Firing Process', excerpt: 'A look at the kiln — the fire that transforms every piece.', date: 'AUG 28, 2024', category: 'Studio', img: J.a },
+  { title: 'Creating a Kinder, Slower Home', excerpt: 'Small changes, quiet joys, and objects that matter.', date: 'AUG 10, 2024', category: 'Living', img: J.b },
+  { title: 'From Earth to Table', excerpt: 'The journey of a piece — from raw clay to your dining room.', date: 'JUL 22, 2024', category: 'Process', img: J.c },
+  { title: 'Why We Fire With Wood', excerpt: 'The character that only a wood-fired kiln can give.', date: 'JUL 05, 2024', category: 'Craft', img: J.d },
+  { title: 'Notes on Glaze & Texture', excerpt: 'A designer\'s guide to the surfaces we love.', date: 'JUN 18, 2024', category: 'Design', img: J.e },
+  { title: 'The Studio Journal, Vol. 1', excerpt: 'Behind-the-scenes moments from our first year.', date: 'MAY 30, 2024', category: 'Studio', img: J.f },
 ]
 
 const categories = ['All', 'Philosophy', 'Studio', 'Craft', 'Living', 'Design', 'Process']

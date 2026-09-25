@@ -1,52 +1,54 @@
 import Link from 'next/link'
 import { Icon } from '@/components/Icons'
+import IMG from '@/lib/img'
 
-const IMG = {
-  heroPot: 'https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=1200&q=80',
-  handsClay: 'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=1200&q=80',
-  clayRaw: 'https://images.unsplash.com/photo-1551772804-b90f4b4ff9de?auto=format&fit=crop&w=600&q=80',
-  shaping: 'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=600&q=80',
-  firing: 'https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&w=600&q=80',
-  finishing: 'https://images.unsplash.com/photo-1493106641515-6b5631de4bb9?auto=format&fit=crop&w=600&q=80',
-  mug: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=600&q=80',
-  bowl: 'https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=600&q=80',
-  vase: 'https://images.unsplash.com/photo-1578500494198-246f612d3b3d?auto=format&fit=crop&w=600&q=80',
-  plate: 'https://images.unsplash.com/photo-1592837827234-a95a14ca7bfa?auto=format&fit=crop&w=600&q=80',
-  jug: 'https://images.unsplash.com/photo-1610701596061-2ecf227e85b2?auto=format&fit=crop&w=600&q=80',
-  planter: 'https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=600&q=80',
-  earthVessel: 'https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=900&q=80',
-  studio1: 'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=600&q=80',
-  studio2: 'https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&w=600&q=80',
-  studio3: 'https://images.unsplash.com/photo-1493106641515-6b5631de4bb9?auto=format&fit=crop&w=600&q=80',
+// Map to page-friendly names
+const P = {
+  heroPot: IMG.heroPot,
+  handsClay: IMG.workshop,
+  clayRaw: IMG.clayRaw,
+  shaping: IMG.shaping,
+  firing: IMG.firing,
+  finishing: IMG.finishing,
+  mug: IMG.mug1,
+  bowl: IMG.bowl1,
+  vase: IMG.vase1,
+  plate: IMG.plate1,
+  jug: IMG.jug1,
+  planter: IMG.planter1,
+  earthVessel: IMG.heroAlt,
+  studio1: IMG.journalA,
+  studio2: IMG.journalB,
+  studio3: IMG.journalC,
 }
 
 const archive = [
-  { n: '02', name: 'Espresso Cup', price: '₹599', img: IMG.mug, rot: -3 },
-  { n: '03', name: 'Serving Bowl', price: '₹899', img: IMG.bowl, rot: 2 },
-  { n: '01', name: 'Handmade Vase', price: '₹699', img: IMG.vase, rot: -1 },
-  { n: '04', name: 'Ceramic Plate', price: '₹799', img: IMG.plate, rot: 3 },
-  { n: '05', name: 'Clay Jug', price: '₹1,299', img: IMG.jug, rot: -2 },
+  { n: '02', name: 'Espresso Cup', price: '₹599', img: P.mug, rot: -3 },
+  { n: '03', name: 'Serving Bowl', price: '₹899', img: P.bowl, rot: 2 },
+  { n: '01', name: 'Handmade Vase', price: '₹699', img: P.vase, rot: -1 },
+  { n: '04', name: 'Ceramic Plate', price: '₹799', img: P.plate, rot: 3 },
+  { n: '05', name: 'Clay Jug', price: '₹1,299', img: P.jug, rot: -2 },
 ]
 
 const process = [
-  { n: '01', title: 'Sourcing', desc: 'Natural clay from the earth', img: IMG.clayRaw },
-  { n: '02', title: 'Shaping', desc: 'Guided by hand and intuition', img: IMG.shaping },
-  { n: '03', title: 'Firing', desc: 'Transformed by heat', img: IMG.firing },
-  { n: '04', title: 'Finishing', desc: 'Unique textures, for lasting beauty', img: IMG.finishing },
+  { n: '01', title: 'Sourcing', desc: 'Natural clay from the earth', img: P.clayRaw },
+  { n: '02', title: 'Shaping', desc: 'Guided by hand and intuition', img: P.shaping },
+  { n: '03', title: 'Firing', desc: 'Transformed by heat', img: P.firing },
+  { n: '04', title: 'Finishing', desc: 'Unique textures, for lasting beauty', img: P.finishing },
 ]
 
 const collection = [
-  { n: '01', title: 'Mugs', sub: 'For quiet moments', img: IMG.mug, span: 'col-span-1' },
-  { n: '02', title: 'Plates & Bowls', sub: 'For shared tables', img: IMG.bowl, span: 'col-span-1' },
-  { n: '03', title: 'Planters', sub: 'For greener spaces', img: IMG.planter, span: 'col-span-1' },
-  { n: '04', title: 'Vases', sub: 'For meaningful corners', img: IMG.vase, span: 'col-span-1' },
-  { n: '05', title: 'Others', sub: 'Unique pieces', img: IMG.jug, span: 'col-span-1' },
+  { n: '01', title: 'Mugs', sub: 'For quiet moments', img: P.mug, span: 'col-span-1' },
+  { n: '02', title: 'Plates & Bowls', sub: 'For shared tables', img: P.bowl, span: 'col-span-1' },
+  { n: '03', title: 'Planters', sub: 'For greener spaces', img: P.planter, span: 'col-span-1' },
+  { n: '04', title: 'Vases', sub: 'For meaningful corners', img: P.vase, span: 'col-span-1' },
+  { n: '05', title: 'Others', sub: 'Unique pieces', img: P.jug, span: 'col-span-1' },
 ]
 
 const journal = [
-  { title: 'The Beauty in Imperfection', date: 'SEP 12, 2024', img: IMG.studio1 },
-  { title: 'Inside Our Firing Process', date: 'AUG 28, 2024', img: IMG.studio2 },
-  { title: 'Creating a Kinder, Slower Home', date: 'AUG 10, 2024', img: IMG.studio3 },
+  { title: 'The Beauty in Imperfection', date: 'SEP 12, 2024', img: P.studio1 },
+  { title: 'Inside Our Firing Process', date: 'AUG 28, 2024', img: P.studio2 },
+  { title: 'Creating a Kinder, Slower Home', date: 'AUG 10, 2024', img: P.studio3 },
 ]
 
 const badges = [
@@ -81,7 +83,7 @@ export default function HomePage() {
           {/* RIGHT: big pot image with annotations */}
           <div className="relative min-h-[520px] lg:min-h-[720px]">
             <img
-              src={IMG.heroPot}
+              src={P.heroPot}
               alt="Handcrafted earthen vessel"
               className="absolute inset-0 h-full w-full object-cover"
             />
@@ -119,7 +121,7 @@ export default function HomePage() {
             </p>
           </div>
           <div className="relative -mx-2 flex items-center gap-4 rounded-sm bg-cream-50 p-4 paper-edge lg:mx-0 lg:-ml-24 lg:mr-6">
-            {[IMG.mug, IMG.bowl, IMG.vase, IMG.plate, IMG.jug].map((src, i) => (
+            {[P.mug, P.bowl, P.vase, P.plate, P.jug].map((src, i) => (
               <img key={i} src={src} alt="" className="h-20 w-24 shrink-0 rounded-sm object-cover md:h-24 md:w-32" />
             ))}
           </div>
@@ -176,7 +178,7 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="relative">
-            <img src={IMG.handsClay} alt="Hands shaping clay on a wheel" className="h-[460px] w-full rounded-sm object-cover paper-edge" />
+            <img src={P.handsClay} alt="Hands shaping clay on a wheel" className="h-[460px] w-full rounded-sm object-cover paper-edge" />
             <p className="hand absolute right-6 top-8 text-xl text-cream-50 rotate-[3deg]">Same materials.<br/>A brighter<br/>tomorrow.</p>
           </div>
         </div>
@@ -259,7 +261,7 @@ export default function HomePage() {
           </div>
 
           <div className="relative">
-            <img src={IMG.earthVessel} alt="The Earth Vessel featured piece" className="mx-auto h-[420px] w-full max-w-sm rounded-sm object-cover paper-edge" />
+            <img src={P.earthVessel} alt="The Earth Vessel featured piece" className="mx-auto h-[420px] w-full max-w-sm rounded-sm object-cover paper-edge" />
             <div className="absolute -top-2 left-0 grid h-24 w-24 place-items-center rounded-full bg-cream-50 text-center paper-edge">
               <p className="hand text-lg leading-tight text-ink-800">One of<br/>a kind</p>
             </div>

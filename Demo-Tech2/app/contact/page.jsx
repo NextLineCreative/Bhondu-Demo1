@@ -1,9 +1,13 @@
 import Link from 'next/link'
 import { Icon } from '@/components/Icons'
+import IMG from '@/lib/img'
 
-const IMG = {
-  studio: 'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=1200&q=80',
-  door: 'https://images.unsplash.com/photo-1493106641515-6b5631de4bb9?auto=format&fit=crop&w=800&q=80',
+const C = {
+  studio: IMG.studioHero,
+  door: IMG.door,
+  detail: IMG.studioDetail,
+  vessel: IMG.heroPot,
+  hands: IMG.workshop,
 }
 
 const infoCards = [
@@ -33,7 +37,7 @@ export default function ContactPage() {
             </p>
           </div>
           <div className="relative">
-            <img src={IMG.studio} alt="Studio door" className="h-[500px] w-full rounded-sm object-cover paper-edge" />
+            <img src={C.studio} alt="Studio door" className="h-[500px] w-full rounded-sm object-cover paper-edge" />
             <p className="hand absolute -top-2 right-6 rotate-[-3deg] text-xl text-ink-800">The door is always open.</p>
           </div>
         </div>
@@ -42,17 +46,30 @@ export default function ContactPage() {
       {/* CONTACT CARDS */}
       <section className="py-12">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-6 md:grid-cols-3 lg:px-10">
-          {infoCards.map((c) => (
-            <div key={c.title} className="rounded-sm bg-cream-50 p-6 paper-edge">
-              <div className="grid h-11 w-11 place-items-center rounded-full bg-rust-500 text-cream-50">
-                <Icon name={c.icon} className="h-5 w-5" />
+          {infoCards.map((c, i) => (
+            <div key={c.title} className="group relative overflow-hidden rounded-sm bg-cream-50 p-6 paper-edge">
+              <img src={[C.vessel, C.detail, C.hands][i]} alt="" className="absolute inset-0 h-full w-full object-cover opacity-0 transition group-hover:opacity-20" />
+              <div className="relative">
+                <div className="grid h-11 w-11 place-items-center rounded-full bg-rust-500 text-cream-50">
+                  <Icon name={c.icon} className="h-5 w-5" />
+                </div>
+                <p className="mt-4 text-[10px] uppercase tracking-widest-2 text-clay-600">{c.title}</p>
+                {c.lines.map((l) => (
+                  <p key={l} className="mt-1 text-lg font-serif text-ink-800">{l}</p>
+                ))}
               </div>
-              <p className="mt-4 text-[10px] uppercase tracking-widest-2 text-clay-600">{c.title}</p>
-              {c.lines.map((l) => (
-                <p key={l} className="mt-1 text-lg font-serif text-ink-800">{l}</p>
-              ))}
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* STUDIO GALLERY */}
+      <section className="py-6">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-4 px-6 md:grid-cols-4 lg:px-10">
+          <img src={C.studio} alt="Studio corner" className="h-56 w-full rounded-sm object-cover paper-edge" />
+          <img src={C.detail} alt="Finished pieces" className="h-56 w-full rounded-sm object-cover paper-edge mt-6" />
+          <img src={C.hands} alt="Hands at work" className="h-56 w-full rounded-sm object-cover paper-edge" />
+          <img src={C.vessel} alt="Featured vessel" className="h-56 w-full rounded-sm object-cover paper-edge mt-6" />
         </div>
       </section>
 
@@ -60,7 +77,7 @@ export default function ContactPage() {
       <section className="py-12">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 lg:grid-cols-2 lg:px-10">
           <div className="relative">
-            <img src={IMG.door} alt="Studio corner" className="h-[560px] w-full rounded-sm object-cover paper-edge" />
+            <img src={C.door} alt="Studio corner" className="h-[560px] w-full rounded-sm object-cover paper-edge" />
             <p className="hand absolute left-4 bottom-4 rotate-[-2deg] text-lg text-cream-50">Studio No. 04<br/>Auroville</p>
           </div>
           <div>
