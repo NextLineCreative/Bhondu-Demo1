@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Icon } from '@/components/Icons'
 import IMG from '@/lib/img'
+import { Reveal, Stagger, StaggerItem, TiltedCard } from '@/components/Motion'
 
 // Map to page-friendly names
 const P = {
@@ -62,7 +63,7 @@ export default function HomePage() {
   return (
     <>
       {/* HERO — full-bleed image right, tight copy column left */}
-      <section className="relative bg-cream-100">
+      <section className="relative bg-ivory-100">
         <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,42%),minmax(0,58%)]">
           {/* LEFT: copy */}
           <div className="flex flex-col justify-center px-6 py-16 lg:px-14 lg:py-24">
@@ -101,12 +102,12 @@ export default function HomePage() {
               Each piece<br/>carries a story
             </p>
             {/* vertical sidebar text */}
-            <div className="absolute right-4 top-1/2 -translate-y-1/2 text-right text-[11px] font-semibold uppercase tracking-widest-2 text-cream-50/95">
+            <div className="absolute right-4 top-1/2 -translate-y-1/2 text-right text-[11px] font-semibold uppercase tracking-widest-2 text-ivory-50/95">
               <p>CLAY</p><p>FIRE</p><p>HANDS</p><p>HOME</p>
-              <span className="mt-2 ml-auto block h-px w-8 bg-cream-50/80" />
+              <span className="mt-2 ml-auto block h-px w-8 bg-ivory-50/80" />
             </div>
             {/* fig. label bottom-right */}
-            <p className="hand absolute bottom-8 right-6 rotate-[-3deg] text-right text-xl leading-tight text-cream-50">
+            <p className="hand absolute bottom-8 right-6 rotate-[-3deg] text-right text-xl leading-tight text-ivory-50">
               Fig. 01<br/>Earthen Vessel<br/>c. 2024
             </p>
           </div>
@@ -120,7 +121,7 @@ export default function HomePage() {
               Objects<br/>for a Slower<br/>Life
             </p>
           </div>
-          <div className="relative -mx-2 flex items-center gap-4 rounded-sm bg-cream-50 p-4 paper-edge lg:mx-0 lg:-ml-24 lg:mr-6">
+          <div className="relative -mx-2 flex items-center gap-4 rounded-sm bg-ivory-50 p-4 paper-edge lg:mx-0 lg:-ml-24 lg:mr-6">
             {[P.mug, P.bowl, P.vase, P.plate, P.jug].map((src, i) => (
               <img key={i} src={src} alt="" className="h-20 w-24 shrink-0 rounded-sm object-cover md:h-24 md:w-32" />
             ))}
@@ -128,34 +129,38 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CLAY ARCHIVE — polaroid grid */}
+      {/* CLAY ARCHIVE — polaroid grid, tilt-on-hover + stagger reveal */}
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <div>
-              <p className="eyebrow">The Clay Archive</p>
-              <h2 className="display mt-3 text-5xl leading-[0.95] text-ink-800 lg:text-6xl">Everyday<br/>Objects,<br/>Lasting Stories.</h2>
-            </div>
-            <Link href="/shop" className="btn-ghost">Explore All <Icon name="arrow" className="h-3.5 w-3.5" /></Link>
-          </div>
-
-          <div className="mt-12 grid grid-cols-2 gap-6 md:grid-cols-5">
-            {archive.map((a, i) => (
-              <div key={i} className="polaroid bg-cream-50 p-3 paper-edge" style={{ ['--rot']: `${a.rot}deg` }}>
-                <span className="absolute -left-2 -top-3 hand text-2xl text-ink-800">{a.n}</span>
-                <img src={a.img} alt={a.name} className="h-56 w-full object-cover" />
-                <div className="flex items-end justify-between p-2 pt-4">
-                  <div>
-                    <p className="hand text-2xl leading-none text-ink-800">{a.name}</p>
-                    <p className="mt-1 text-sm text-ink-800/70">{a.price}</p>
-                  </div>
-                  <button className="grid h-9 w-9 place-items-center rounded-full bg-rust-500 text-cream-50 hover:bg-rust-600">
-                    <Icon name="arrow" className="h-4 w-4" />
-                  </button>
-                </div>
+          <Reveal>
+            <div className="flex flex-wrap items-end justify-between gap-6">
+              <div>
+                <p className="eyebrow">The Clay Archive</p>
+                <h2 className="display mt-3 text-5xl leading-[0.95] text-ink-800 lg:text-6xl">Everyday<br/>Objects,<br/>Lasting Stories.</h2>
               </div>
+              <Link href="/shop" className="btn-ghost">Explore All <Icon name="arrow" className="h-3.5 w-3.5" /></Link>
+            </div>
+          </Reveal>
+
+          <Stagger className="mt-12 grid grid-cols-2 gap-6 md:grid-cols-5">
+            {archive.map((a, i) => (
+              <StaggerItem key={i}>
+                <TiltedCard className="relative bg-ivory-50 p-3 paper-edge" max={10}>
+                  <span className="absolute -left-2 -top-3 hand text-2xl text-ink-800 z-10">{a.n}</span>
+                  <img src={a.img} alt={a.name} className="h-56 w-full object-cover" />
+                  <div className="flex items-end justify-between p-2 pt-4">
+                    <div>
+                      <p className="hand text-2xl leading-none text-ink-800">{a.name}</p>
+                      <p className="mt-1 text-sm text-ink-800/70">{a.price}</p>
+                    </div>
+                    <button className="grid h-9 w-9 place-items-center rounded-full bg-rust-500 text-ivory-50 hover:bg-rust-600">
+                      <Icon name="arrow" className="h-4 w-4" />
+                    </button>
+                  </div>
+                </TiltedCard>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
 
@@ -179,19 +184,19 @@ export default function HomePage() {
           </div>
           <div className="relative">
             <img src={P.handsClay} alt="Hands shaping clay on a wheel" className="h-[460px] w-full rounded-sm object-cover paper-edge" />
-            <p className="hand absolute right-6 top-8 text-xl text-cream-50 rotate-[3deg]">Same materials.<br/>A brighter<br/>tomorrow.</p>
+            <p className="hand absolute right-6 top-8 text-xl text-ivory-50 rotate-[3deg]">Same materials.<br/>A brighter<br/>tomorrow.</p>
           </div>
         </div>
       </section>
 
       {/* MAKING PROCESS — dark strip */}
-      <section className="relative overflow-hidden bg-moss-800 py-16 text-cream-100">
-        <Icon name="leaf" className="pointer-events-none absolute -bottom-4 -left-4 h-40 w-40 text-cream-100/10" />
-        <Icon name="leaf" className="pointer-events-none absolute -top-4 right-4 h-32 w-32 text-cream-100/10 rotate-180" />
+      <section className="relative overflow-hidden bg-forest-600 py-16 text-ivory-100">
+        <Icon name="leaf" className="pointer-events-none absolute -bottom-4 -left-4 h-40 w-40 text-ivory-100/10" />
+        <Icon name="leaf" className="pointer-events-none absolute -top-4 right-4 h-32 w-32 text-ivory-100/10 rotate-180" />
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 md:grid-cols-[180px,1fr] lg:px-10">
           <div>
-            <p className="text-[10px] uppercase tracking-widest-2 text-cream-100/60">The<br/>Making<br/>Process</p>
-            <span className="mt-3 block h-px w-8 bg-cream-100/60" />
+            <p className="text-[10px] uppercase tracking-widest-2 text-ivory-100/60">The<br/>Making<br/>Process</p>
+            <span className="mt-3 block h-px w-8 bg-ivory-100/60" />
           </div>
           <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
             {process.map((p, i) => (
@@ -200,11 +205,11 @@ export default function HomePage() {
                   <img src={p.img} alt={p.title} className="h-32 w-full object-cover" />
                 </div>
                 <div className="mt-3 flex items-baseline gap-2">
-                  <span className="hand text-xl text-cream-100/80">{p.n}</span>
-                  <p className="font-serif text-lg text-cream-50">{p.title}</p>
+                  <span className="hand text-xl text-ivory-100/80">{p.n}</span>
+                  <p className="font-serif text-lg text-ivory-50">{p.title}</p>
                 </div>
-                <p className="mt-1 text-xs text-cream-100/70">{p.desc}</p>
-                {i < 3 && <span className="pointer-events-none absolute -right-4 top-14 text-cream-100/40"><Icon name="arrow" className="h-4 w-4" /></span>}
+                <p className="mt-1 text-xs text-ivory-100/70">{p.desc}</p>
+                {i < 3 && <span className="pointer-events-none absolute -right-4 top-14 text-ivory-100/40"><Icon name="arrow" className="h-4 w-4" /></span>}
               </div>
             ))}
           </div>
@@ -225,23 +230,27 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-5">
+          <Stagger className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-5" gap={0.06}>
             {collection.map((c) => (
-              <Link key={c.title} href="/shop" className="group relative overflow-hidden rounded-sm bg-cream-50">
-                <img src={c.img} alt={c.title} className="h-72 w-full object-cover transition duration-500 group-hover:scale-105" />
-                <div className="absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-ink-800/70 via-transparent p-4 text-cream-50">
-                  <div>
-                    <p className="hand text-lg leading-none opacity-80">{c.n}</p>
-                    <p className="mt-1 text-lg font-medium tracking-wide uppercase">{c.title}</p>
-                    <p className="text-xs opacity-80">{c.sub}</p>
-                  </div>
-                  <span className="grid h-9 w-9 place-items-center rounded-full border border-cream-50/70">
-                    <Icon name="arrow" className="h-3.5 w-3.5" />
-                  </span>
-                </div>
-              </Link>
+              <StaggerItem key={c.title}>
+                <TiltedCard className="h-full" max={8}>
+                  <Link href="/shop" className="group relative block overflow-hidden rounded-sm bg-ivory-50">
+                    <img src={c.img} alt={c.title} className="h-72 w-full object-cover transition duration-500 group-hover:scale-105" />
+                    <div className="absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-ink-800/70 via-transparent p-4 text-ivory-50">
+                      <div>
+                        <p className="hand text-lg leading-none opacity-80">{c.n}</p>
+                        <p className="mt-1 text-lg font-medium tracking-wide uppercase">{c.title}</p>
+                        <p className="text-xs opacity-80">{c.sub}</p>
+                      </div>
+                      <span className="grid h-9 w-9 place-items-center rounded-full border border-ivory-50/70">
+                        <Icon name="arrow" className="h-3.5 w-3.5" />
+                      </span>
+                    </div>
+                  </Link>
+                </TiltedCard>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
 
@@ -262,7 +271,7 @@ export default function HomePage() {
 
           <div className="relative">
             <img src={P.earthVessel} alt="The Earth Vessel featured piece" className="mx-auto h-[420px] w-full max-w-sm rounded-sm object-cover paper-edge" />
-            <div className="absolute -top-2 left-0 grid h-24 w-24 place-items-center rounded-full bg-cream-50 text-center paper-edge">
+            <div className="absolute -top-2 left-0 grid h-24 w-24 place-items-center rounded-full bg-ivory-50 text-center paper-edge">
               <p className="hand text-lg leading-tight text-ink-800">One of<br/>a kind</p>
             </div>
           </div>

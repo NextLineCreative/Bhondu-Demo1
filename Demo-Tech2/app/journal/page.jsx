@@ -35,7 +35,7 @@ export default function JournalPage() {
   return (
     <>
       {/* HERO */}
-      <section className="bg-cream-100 pt-10 pb-6">
+      <section className="bg-ivory-100 pt-10 pb-6">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <p className="text-[10px] uppercase tracking-widest-2 text-ink-800">The Journal</p>
           <h1 className="display mt-6 text-6xl leading-[0.95] text-ink-800 lg:text-8xl">Notes from<br/>the Studio.</h1>
@@ -61,7 +61,7 @@ export default function JournalPage() {
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 lg:grid-cols-2 lg:px-10">
           <div className="relative">
             <img src={featured.img} alt={featured.title} className="h-[520px] w-full rounded-sm object-cover paper-edge" />
-            <span className="absolute left-4 top-4 rounded-full bg-cream-50 px-3 py-1 text-[10px] uppercase tracking-widest-2 text-ink-800">Featured</span>
+            <span className="absolute left-4 top-4 rounded-full bg-ivory-50 px-3 py-1 text-[10px] uppercase tracking-widest-2 text-ink-800">Featured</span>
           </div>
           <div>
             <p className="text-[10px] uppercase tracking-widest-2 text-clay-600">{featured.category} · {featured.date}</p>
@@ -94,14 +94,14 @@ export default function JournalPage() {
       </section>
 
       {/* SUBSCRIBE */}
-      <section className="bg-moss-800 py-16 text-cream-100">
+      <section className="bg-forest-600 py-16 text-ivory-100">
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-4 px-6 text-center lg:px-10">
-          <p className="text-[10px] uppercase tracking-widest-2 text-cream-100/60">Join the journal</p>
+          <p className="text-[10px] uppercase tracking-widest-2 text-ivory-100/60">Join the journal</p>
           <h2 className="display text-4xl leading-tight">A quiet letter, once a month.</h2>
-          <p className="max-w-md text-sm text-cream-100/70">New essays, kiln notes, and early access to small drops. No noise. Just clay.</p>
-          <form className="mt-6 flex w-full max-w-md items-center gap-0 border-b border-cream-100/40 pb-2">
-            <input type="email" placeholder="Enter your email" className="w-full bg-transparent text-sm placeholder:text-cream-100/50 focus:outline-none" />
-            <button type="button" className="grid h-9 w-9 place-items-center bg-rust-500 text-cream-50 hover:bg-rust-600">
+          <p className="max-w-md text-sm text-ivory-100/70">New essays, kiln notes, and early access to small drops. No noise. Just clay.</p>
+          <form className="mt-6 flex w-full max-w-md items-center gap-0 border-b border-ivory-100/40 pb-2">
+            <input type="email" placeholder="Enter your email" className="w-full bg-transparent text-sm placeholder:text-ivory-100/50 focus:outline-none" />
+            <button type="button" className="grid h-9 w-9 place-items-center bg-rust-500 text-ivory-50 hover:bg-rust-600">
               <Icon name="arrow" className="h-4 w-4" />
             </button>
           </form>

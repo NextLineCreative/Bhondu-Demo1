@@ -23,7 +23,7 @@ export default function ShopPage() {
   return (
     <>
       {/* HERO */}
-      <section className="bg-cream-100 pt-10 pb-6">
+      <section className="bg-ivory-100 pt-10 pb-6">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <p className="text-[10px] uppercase tracking-widest-2 text-ink-800">Shop the Archive</p>
           <div className="mt-6 grid grid-cols-1 items-end gap-10 lg:grid-cols-[1.2fr,1fr]">
@@ -59,13 +59,13 @@ export default function ShopPage() {
           <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
             {products.map((p) => (
               <article key={p.n} className="group">
-                <div className="relative overflow-hidden bg-cream-50 rounded-sm">
+                <div className="relative overflow-hidden bg-ivory-50 rounded-sm">
                   <img src={p.img} alt={p.name} className="h-72 w-full object-cover transition duration-500 group-hover:scale-105" />
                   <span className="hand absolute left-3 top-2 text-2xl text-ink-800">{p.n}</span>
                   {p.tag && (
-                    <span className="absolute right-3 top-3 rounded-full bg-cream-50 px-3 py-1 text-[9px] uppercase tracking-widest-2 text-ink-800">{p.tag}</span>
+                    <span className="absolute right-3 top-3 rounded-full bg-ivory-50 px-3 py-1 text-[9px] uppercase tracking-widest-2 text-ink-800">{p.tag}</span>
                   )}
-                  <button className="absolute bottom-3 right-3 grid h-9 w-9 place-items-center rounded-full bg-rust-500 text-cream-50 opacity-0 transition group-hover:opacity-100 hover:bg-rust-600">
+                  <button className="absolute bottom-3 right-3 grid h-9 w-9 place-items-center rounded-full bg-rust-500 text-ivory-50 opacity-0 transition group-hover:opacity-100 hover:bg-rust-600">
                     <Icon name="bag" className="h-4 w-4" />
                   </button>
                 </div>
@@ -80,15 +80,15 @@ export default function ShopPage() {
       </section>
 
       {/* BANNER */}
-      <section className="bg-moss-800 py-14 text-cream-100">
+      <section className="bg-forest-600 py-14 text-ivory-100">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 md:flex-row lg:px-10">
           <div>
-            <p className="text-[10px] uppercase tracking-widest-2 text-cream-100/60">Join Us</p>
+            <p className="text-[10px] uppercase tracking-widest-2 text-ivory-100/60">Join Us</p>
             <h2 className="display mt-2 text-3xl">Sign up for early access to new drops.</h2>
           </div>
-          <form className="flex w-full max-w-md items-center gap-0 border-b border-cream-100/40 pb-2">
-            <input type="email" placeholder="Enter your email" className="w-full bg-transparent text-sm placeholder:text-cream-100/50 focus:outline-none" />
-            <button type="button" className="grid h-9 w-9 place-items-center bg-rust-500 text-cream-50 hover:bg-rust-600">
+          <form className="flex w-full max-w-md items-center gap-0 border-b border-ivory-100/40 pb-2">
+            <input type="email" placeholder="Enter your email" className="w-full bg-transparent text-sm placeholder:text-ivory-100/50 focus:outline-none" />
+            <button type="button" className="grid h-9 w-9 place-items-center bg-rust-500 text-ivory-50 hover:bg-rust-600">
               <Icon name="arrow" className="h-4 w-4" />
             </button>
           </form>

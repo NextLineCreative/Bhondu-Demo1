@@ -16,7 +16,7 @@ html, body {
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center gap-3 rounded-none bg-rust-500 px-6 py-3 text-xs font-semibold tracking-widest-2 text-cream-50 uppercase transition hover:bg-rust-600;
+    @apply inline-flex items-center gap-3 rounded-none bg-rust-500 px-6 py-3 text-xs font-semibold tracking-widest-2 text-ivory-50 uppercase transition hover:bg-rust-600;
   }
   .btn-ghost {
     @apply inline-flex items-center gap-2 text-xs font-semibold tracking-widest-2 text-ink-800 uppercase transition hover:text-rust-500;

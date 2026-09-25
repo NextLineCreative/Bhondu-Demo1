@@ -14,7 +14,7 @@ const links = [
 export default function Navbar() {
   const pathname = usePathname()
   return (
-    <header className="relative z-30 bg-cream-100">
+    <header className="relative z-30 bg-ivory-100">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
         <Link href="/" className="flex items-center gap-3">
           <Icon name="sprig" className="h-6 w-6 text-clay-600" />
@@ -45,7 +45,7 @@ export default function Navbar() {
           <button aria-label="Account" className="transition hover:text-rust-500"><Icon name="user" /></button>
           <button aria-label="Cart" className="relative transition hover:text-rust-500">
             <Icon name="bag" />
-            <span className="absolute -right-2 -top-2 grid h-4 w-4 place-items-center rounded-full bg-rust-500 text-[9px] text-cream-50">1</span>
+            <span className="absolute -right-2 -top-2 grid h-4 w-4 place-items-center rounded-full bg-rust-500 text-[9px] text-ivory-50">1</span>
           </button>
           <button aria-label="Menu" className="md:hidden"><Icon name="menu" /></button>
         </div>

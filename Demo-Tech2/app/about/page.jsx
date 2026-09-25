@@ -30,7 +30,7 @@ export default function AboutPage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-cream-100 pt-6 pb-16">
+      <section className="relative overflow-hidden bg-ivory-100 pt-6 pb-16">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 lg:grid-cols-[1fr,1.1fr] lg:px-10">
           <div className="pt-6">
             <p className="text-[10px] uppercase tracking-widest-2 text-ink-800">Our Story</p>
@@ -42,7 +42,7 @@ export default function AboutPage() {
           <div className="relative">
             <img src={A.studioHero} alt="Inside the studio" className="h-[520px] w-full rounded-sm object-cover paper-edge" />
             <p className="hand absolute -top-2 left-10 rotate-[-4deg] text-xl text-ink-800">Where clay becomes character.</p>
-            <p className="hand absolute right-6 bottom-6 rotate-[3deg] text-lg text-cream-50">Est. 2024<br/>Studio No. 04</p>
+            <p className="hand absolute right-6 bottom-6 rotate-[3deg] text-lg text-ivory-50">Est. 2024<br/>Studio No. 04</p>
           </div>
         </div>
       </section>
@@ -78,16 +78,16 @@ export default function AboutPage() {
       </section>
 
       {/* VALUES */}
-      <section className="bg-moss-800 py-20 text-cream-100">
+      <section className="bg-forest-600 py-20 text-ivory-100">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <p className="text-[10px] uppercase tracking-widest-2 text-cream-100/60">What we stand for</p>
+          <p className="text-[10px] uppercase tracking-widest-2 text-ivory-100/60">What we stand for</p>
           <h2 className="display mt-3 text-5xl leading-[0.95] lg:text-6xl">Values in every vessel.</h2>
           <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((v) => (
               <div key={v.title}>
-                <div className="grid h-12 w-12 place-items-center rounded-full border border-cream-100/30 text-cream-100"><Icon name={v.icon} className="h-6 w-6" /></div>
-                <p className="mt-4 font-serif text-xl text-cream-50">{v.title}</p>
-                <p className="mt-2 text-sm text-cream-100/70">{v.desc}</p>
+                <div className="grid h-12 w-12 place-items-center rounded-full border border-ivory-100/30 text-ivory-100"><Icon name={v.icon} className="h-6 w-6" /></div>
+                <p className="mt-4 font-serif text-xl text-ivory-50">{v.title}</p>
+                <p className="mt-2 text-sm text-ivory-100/70">{v.desc}</p>
               </div>
             ))}
           </div>
@@ -106,7 +106,7 @@ export default function AboutPage() {
           </div>
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
             {team.map((t, i) => (
-              <div key={t.name} className="polaroid bg-cream-50 p-3 paper-edge" style={{ ['--rot']: `${[-2, 1, -1][i]}deg` }}>
+              <div key={t.name} className="polaroid bg-ivory-50 p-3 paper-edge" style={{ ['--rot']: `${[-2, 1, -1][i]}deg` }}>
                 <img src={t.img} alt={t.name} className="h-80 w-full object-cover" />
                 <div className="p-2 pt-4">
                   <p className="hand text-2xl leading-none text-ink-800">{t.name}</p>
@@ -119,7 +119,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-cream-100 py-16">
+      <section className="bg-ivory-100 py-16">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 md:flex-row lg:px-10">
           <div>
             <p className="eyebrow">Visit the Studio</p>

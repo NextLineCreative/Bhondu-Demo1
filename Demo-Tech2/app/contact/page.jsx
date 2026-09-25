@@ -27,7 +27,7 @@ export default function ContactPage() {
   return (
     <>
       {/* HERO */}
-      <section className="bg-cream-100 pt-10 pb-6">
+      <section className="bg-ivory-100 pt-10 pb-6">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 lg:grid-cols-[1fr,1.1fr] lg:px-10">
           <div className="pt-4">
             <p className="text-[10px] uppercase tracking-widest-2 text-ink-800">Say Hello</p>
@@ -47,10 +47,10 @@ export default function ContactPage() {
       <section className="py-12">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-6 md:grid-cols-3 lg:px-10">
           {infoCards.map((c, i) => (
-            <div key={c.title} className="group relative overflow-hidden rounded-sm bg-cream-50 p-6 paper-edge">
+            <div key={c.title} className="group relative overflow-hidden rounded-sm bg-ivory-50 p-6 paper-edge">
               <img src={[C.vessel, C.detail, C.hands][i]} alt="" className="absolute inset-0 h-full w-full object-cover opacity-0 transition group-hover:opacity-20" />
               <div className="relative">
-                <div className="grid h-11 w-11 place-items-center rounded-full bg-rust-500 text-cream-50">
+                <div className="grid h-11 w-11 place-items-center rounded-full bg-rust-500 text-ivory-50">
                   <Icon name={c.icon} className="h-5 w-5" />
                 </div>
                 <p className="mt-4 text-[10px] uppercase tracking-widest-2 text-clay-600">{c.title}</p>
@@ -78,7 +78,7 @@ export default function ContactPage() {
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 lg:grid-cols-2 lg:px-10">
           <div className="relative">
             <img src={C.door} alt="Studio corner" className="h-[560px] w-full rounded-sm object-cover paper-edge" />
-            <p className="hand absolute left-4 bottom-4 rotate-[-2deg] text-lg text-cream-50">Studio No. 04<br/>Auroville</p>
+            <p className="hand absolute left-4 bottom-4 rotate-[-2deg] text-lg text-ivory-50">Studio No. 04<br/>Auroville</p>
           </div>
           <div>
             <p className="eyebrow">Send a Message</p>
@@ -139,14 +139,14 @@ export default function ContactPage() {
       </section>
 
       {/* MAP CTA */}
-      <section className="bg-moss-800 py-16 text-cream-100">
+      <section className="bg-forest-600 py-16 text-ivory-100">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 md:flex-row lg:px-10">
           <div>
-            <p className="text-[10px] uppercase tracking-widest-2 text-cream-100/60">Visit the Studio</p>
+            <p className="text-[10px] uppercase tracking-widest-2 text-ivory-100/60">Visit the Studio</p>
             <h2 className="display mt-2 text-3xl">14 Terracotta Lane, Auroville.</h2>
-            <p className="mt-2 text-sm text-cream-100/70">Open Wed – Sun · 10:00 to 18:00</p>
+            <p className="mt-2 text-sm text-ivory-100/70">Open Wed – Sun · 10:00 to 18:00</p>
           </div>
-          <button className="btn-primary bg-cream-50 text-ink-800 hover:bg-cream-100">Get Directions <Icon name="arrow" className="h-3.5 w-3.5" /></button>
+          <button className="btn-primary bg-ivory-50 text-ink-800 hover:bg-ivory-100">Get Directions <Icon name="arrow" className="h-3.5 w-3.5" /></button>
         </div>
       </section>
     </>
