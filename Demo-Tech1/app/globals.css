@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Great+Vibes&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream: #F5EDE0;
+  --wine: #5C1A1A;
+}
+
+html, body {
+  background: #F5EDE0;
+  color: #2A1010;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-full bg-wine-600 px-6 py-3 text-sm font-medium text-cream-100 transition hover:bg-wine-700;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 rounded-full border border-wine-600 px-6 py-3 text-sm font-medium text-wine-600 transition hover:bg-wine-600 hover:text-cream-100;
+  }
+  .eyebrow {
+    @apply text-xs uppercase tracking-widest-2 text-wine-600;
+  }
+  .script {
+    font-family: 'Great Vibes', cursive;
+    font-weight: 400;
+  }
+  .card-shape {
+    border-radius: 40% 35% 45% 40% / 45% 40% 40% 35%;
+  }
+  .blob {
+    border-radius: 46% 54% 52% 48% / 50% 46% 54% 50%;
+  }
+}
+
+/* Wavy organic shape helper */
+.mask-wave {
+  -webkit-mask-image: radial-gradient(ellipse at center, black 70%, transparent 100%);
+}
