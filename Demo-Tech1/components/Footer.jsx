@@ -3,45 +3,64 @@ import { Icon } from './Icons'
 
 export default function Footer() {
   return (
-    <footer className="relative isolate mt-24 text-cream-100">
-      {/* Curved top edge — asymmetric SVG wave */}
+    <footer className="relative isolate mt-24 overflow-hidden text-cream-100">
+      {/* Asymmetric SVG background — stretches to fill the footer area.
+          Top edge is a multi-peak wave, right and bottom edges are curved,
+          left edge stays flat so content aligns to the page. */}
       <svg
-        viewBox="0 0 1440 120"
+        viewBox="0 0 1440 780"
         preserveAspectRatio="none"
-        className="absolute -top-px left-0 h-24 w-full text-wine-700"
+        className="absolute inset-0 -z-10 h-full w-full text-wine-700"
         aria-hidden
       >
+        {/* Main organic silhouette */}
         <path
           fill="currentColor"
-          d="M0,64 C220,10 380,110 620,70 C820,38 980,108 1180,80 C1300,62 1380,90 1440,50 L1440,120 L0,120 Z"
+          d="
+            M0,90
+            C160,20 300,140 540,80
+            C740,32 900,130 1120,72
+            C1260,36 1360,110 1440,58
+            L1440,640
+            C1360,690 1260,660 1140,700
+            C960,760 780,720 600,750
+            C420,780 240,740 120,760
+            L0,770
+            Z
+          "
         />
+        {/* Darker asymmetric overlay adds a layered organic feel */}
+        <path
+          fill="#4A1414"
+          opacity="0.55"
+          d="
+            M0,180
+            C220,120 360,210 580,180
+            C800,150 940,220 1180,190
+            C1300,175 1380,210 1440,190
+            L1440,720
+            C1300,760 1140,720 940,740
+            C740,760 540,720 340,750
+            C200,770 80,740 0,760
+            Z
+          "
+        />
+        {/* Small floating blob accents */}
+        <ellipse cx="180" cy="340" rx="140" ry="120" fill="#3A0F0F" opacity="0.4" />
+        <ellipse cx="1280" cy="420" rx="120" ry="150" fill="#3A0F0F" opacity="0.35" />
+        <circle cx="880" cy="260" r="6" fill="#C9A15D" opacity="0.7" />
+        <circle cx="320" cy="500" r="4" fill="#C9A15D" opacity="0.6" />
+        <circle cx="1100" cy="580" r="5" fill="#C9A15D" opacity="0.5" />
       </svg>
 
-      <div className="relative bg-wine-700 pt-20 pb-10">
-        {/* Asymmetric blob decorations */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -left-24 top-16 h-72 w-72 bg-wine-800/60 blur-sm"
-          style={{ borderRadius: '58% 42% 66% 34% / 48% 62% 38% 52%' }}
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute right-8 top-32 h-56 w-56 bg-gold-500/10"
-          style={{ borderRadius: '42% 58% 30% 70% / 60% 38% 62% 40%' }}
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -right-16 bottom-8 h-48 w-48 bg-wine-800/50"
-          style={{ borderRadius: '70% 30% 50% 50% / 40% 60% 40% 60%' }}
-        />
-
-        <div className="relative mx-auto grid max-w-7xl gap-12 px-6 md:grid-cols-12 lg:px-10">
-          {/* Brand block — spans wider, asymmetric card behind */}
+      <div className="relative pt-28 pb-16">
+        <div className="mx-auto grid max-w-7xl gap-12 px-6 md:grid-cols-12 lg:px-10">
+          {/* Brand block */}
           <div className="md:col-span-4">
             <div className="relative inline-block">
               <span
                 aria-hidden
-                className="absolute -left-4 -top-4 -z-10 h-24 w-40 bg-wine-800/60"
+                className="absolute -left-4 -top-4 -z-10 h-24 w-40 bg-wine-800/50"
                 style={{ borderRadius: '68% 32% 58% 42% / 48% 62% 38% 52%' }}
               />
               <div className="text-3xl font-semibold tracking-widest-2">LUXE</div>
@@ -64,8 +83,8 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Explore — offset down to break grid */}
-          <div className="md:col-span-2 md:mt-6">
+          {/* Explore — offset */}
+          <div className="md:col-span-2 md:mt-10">
             <h4 className="text-xs uppercase tracking-widest-2 text-gold-400">Explore</h4>
             <ul className="mt-4 space-y-2 text-sm">
               {[
@@ -103,8 +122,8 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Hours — offset down */}
-          <div className="md:col-span-3 md:mt-6">
+          {/* Hours */}
+          <div className="md:col-span-3 md:mt-10">
             <h4 className="text-xs uppercase tracking-widest-2 text-gold-400">Hours</h4>
             <ul className="mt-4 space-y-2 text-sm text-cream-200/80">
               <li className="flex justify-between"><span>Mon – Fri</span><span>10:00 – 20:00</span></li>
@@ -120,8 +139,8 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar with organic pill */}
-        <div className="relative mx-auto mt-14 max-w-7xl px-6 lg:px-10">
+        {/* Bottom bar */}
+        <div className="relative mx-auto mt-16 max-w-7xl px-6 lg:px-10">
           <div className="h-px w-full bg-cream-100/10" />
           <div className="mt-6 flex flex-col items-center justify-between gap-4 text-xs text-cream-200/60 sm:flex-row">
             <p>© {new Date().getFullYear()} Luxe Nails · All rights reserved</p>
