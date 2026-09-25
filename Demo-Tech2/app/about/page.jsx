@@ -87,7 +87,7 @@ export default function AboutPage() {
               <div key={v.title}>
                 <div className="grid h-12 w-12 place-items-center rounded-full border border-ivory-100/30 text-ivory-100"><Icon name={v.icon} className="h-6 w-6" /></div>
                 <p className="mt-4 font-serif text-xl text-ivory-50">{v.title}</p>
-                <p className="mt-2 text-sm text-ivory-100/70">{v.desc}</p>
+                <p className="mt-2 text-[15px] text-ivory-100/75">{v.desc}</p>
               </div>
             ))}
           </div>
@@ -102,7 +102,7 @@ export default function AboutPage() {
               <p className="eyebrow">The Makers</p>
               <h2 className="display mt-3 text-5xl leading-[0.95] text-ink-800">Hands behind the clay.</h2>
             </div>
-            <p className="max-w-sm text-sm text-ink-700/80">A small team of potters, designers, and dreamers — each piece is signed by the hands that made it.</p>
+            <p className="max-w-sm text-[15px] leading-relaxed text-ink-700">A small team of potters, designers, and dreamers — each piece is signed by the hands that made it.</p>
           </div>
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
             {team.map((t, i) => (

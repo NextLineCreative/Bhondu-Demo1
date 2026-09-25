@@ -83,7 +83,7 @@ export default function JournalPage() {
                 </div>
                 <p className="mt-4 text-[10px] uppercase tracking-widest-2 text-clay-600">{p.category} · {p.date}</p>
                 <h3 className="mt-2 font-serif text-2xl leading-tight text-ink-800">{p.title}</h3>
-                <p className="mt-2 text-sm text-ink-700/80">{p.excerpt}</p>
+                <p className="mt-2 text-[15px] leading-relaxed text-ink-700">{p.excerpt}</p>
                 <Link href="#" className="mt-4 inline-flex items-center gap-2 text-[11px] uppercase tracking-widest-2 text-rust-500 hover:text-rust-600">
                   Read More <Icon name="arrow" className="h-3 w-3" />
                 </Link>
@@ -98,7 +98,7 @@ export default function JournalPage() {
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-4 px-6 text-center lg:px-10">
           <p className="text-[10px] uppercase tracking-widest-2 text-ivory-100/60">Join the journal</p>
           <h2 className="display text-4xl leading-tight">A quiet letter, once a month.</h2>
-          <p className="max-w-md text-sm text-ivory-100/70">New essays, kiln notes, and early access to small drops. No noise. Just clay.</p>
+          <p className="max-w-md text-[15px] text-ivory-100/75">New essays, kiln notes, and early access to small drops. No noise. Just clay.</p>
           <form className="mt-6 flex w-full max-w-md items-center gap-0 border-b border-ivory-100/40 pb-2">
             <input type="email" placeholder="Enter your email" className="w-full bg-transparent text-sm placeholder:text-ivory-100/50 focus:outline-none" />
             <button type="button" className="grid h-9 w-9 place-items-center bg-rust-500 text-ivory-50 hover:bg-rust-600">

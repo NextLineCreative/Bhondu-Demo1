@@ -14,7 +14,7 @@ export default function Footer() {
                 <div className="mt-0.5 text-[9px] uppercase tracking-widest-2 text-ivory-100/60">Handcrafted Ceramics</div>
               </div>
             </div>
-            <p className="mt-5 max-w-xs text-sm leading-relaxed text-ivory-100/70">
+            <p className="mt-5 max-w-xs text-[15px] leading-relaxed text-ivory-100/75">
               Thoughtfully crafted objects for a more beautiful, slower everyday life.
             </p>
             <div className="mt-6 flex gap-3">
@@ -58,7 +58,7 @@ export default function Footer() {
 
           <div>
             <h4 className="text-[11px] uppercase tracking-widest-2 text-ivory-100/60">Join Our Journal</h4>
-            <p className="mt-4 text-sm text-ivory-100/70">Get updates on new pieces, studio stories and more.</p>
+            <p className="mt-4 text-[15px] text-ivory-100/75">Get updates on new pieces, studio stories and more.</p>
             <form className="mt-5 flex items-center gap-0 border-b border-ivory-100/40 pb-2">
               <input type="email" placeholder="Enter your email" className="w-full bg-transparent text-sm placeholder:text-ivory-100/50 focus:outline-none" />
               <button type="button" className="grid h-8 w-8 place-items-center bg-rust-500 text-ivory-50 hover:bg-rust-600">

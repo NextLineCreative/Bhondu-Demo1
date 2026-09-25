@@ -83,7 +83,7 @@ export default function ContactPage() {
           <div>
             <p className="eyebrow">Send a Message</p>
             <h2 className="display mt-3 text-5xl leading-tight text-ink-800">Let's talk.</h2>
-            <p className="mt-3 max-w-md text-sm text-ink-700/80">Fill in the form below and we'll write back within 48 hours.</p>
+            <p className="mt-3 max-w-md text-[15px] leading-relaxed text-ink-700">Fill in the form below and we'll write back within 48 hours.</p>
 
             <form className="mt-8 space-y-5">
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -131,7 +131,7 @@ export default function ContactPage() {
                     <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><path d="M12 5v14M5 12h14" /></svg>
                   </span>
                 </summary>
-                <p className="mt-3 text-sm text-ink-700/80">{f.a}</p>
+                <p className="mt-3 text-[15px] leading-relaxed text-ink-700">{f.a}</p>
               </details>
             ))}
           </div>
@@ -144,7 +144,7 @@ export default function ContactPage() {
           <div>
             <p className="text-[10px] uppercase tracking-widest-2 text-ivory-100/60">Visit the Studio</p>
             <h2 className="display mt-2 text-3xl">14 Terracotta Lane, Auroville.</h2>
-            <p className="mt-2 text-sm text-ivory-100/70">Open Wed – Sun · 10:00 to 18:00</p>
+            <p className="mt-2 text-[15px] text-ivory-100/75">Open Wed – Sun · 10:00 to 18:00</p>
           </div>
           <button className="btn-primary bg-ivory-50 text-ink-800 hover:bg-ivory-100">Get Directions <Icon name="arrow" className="h-3.5 w-3.5" /></button>
         </div>

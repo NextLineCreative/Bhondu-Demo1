@@ -45,10 +45,10 @@ module.exports = {
         },
       },
       fontFamily: {
-        display: ['"Playfair Display"', 'Georgia', 'serif'],
-        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-        hand: ['"Caveat"', 'cursive'],
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Fraunces', 'Georgia', 'serif'],
+        serif:   ['Fraunces', 'Georgia', 'serif'],
+        hand:    ['Caveat', 'cursive'],
+        sans:    ['Inter', 'system-ui', 'sans-serif'],
       },
       letterSpacing: {
         'widest-2': '0.32em',

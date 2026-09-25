@@ -3,18 +3,22 @@ import { Icon } from '@/components/Icons'
 import IMG from '@/lib/img'
 
 const products = [
-  { n: '01', name: 'Everyday Mug',      price: '₹599',   tag: 'Best Seller', img: IMG.mug1 },
-  { n: '02', name: 'Serving Bowl',      price: '₹899',   tag: 'New',         img: IMG.bowl1 },
-  { n: '03', name: 'Handmade Vase',     price: '₹699',                        img: IMG.vase1 },
-  { n: '04', name: 'Ceramic Plate',     price: '₹799',                        img: IMG.plate1 },
-  { n: '05', name: 'Clay Jug',          price: '₹1,299',                      img: IMG.jug1 },
-  { n: '06', name: 'Terracotta Planter',price: '₹849',                        img: IMG.planter1 },
-  { n: '07', name: 'Storage Pot',       price: '₹1,099',                      img: IMG.pot1 },
-  { n: '08', name: 'Espresso Cup',      price: '₹499',   tag: 'Popular',      img: IMG.mug2 },
-  { n: '09', name: 'Ridged Bowl',       price: '₹999',                        img: IMG.bowl2 },
-  { n: '10', name: 'Slim Vase',         price: '₹749',                        img: IMG.vase2 },
-  { n: '11', name: 'Dinner Plate',      price: '₹599',                        img: IMG.plate2 },
-  { n: '12', name: 'Ceramic Planter',   price: '₹899',   tag: 'Limited',      img: IMG.planter2 },
+  { n: '01', name: 'Everyday Clay Mug',      price: '₹599',   tag: 'Best Seller', img: IMG.mug1 },
+  { n: '02', name: 'Serving Clay Bowl',      price: '₹899',   tag: 'New',         img: IMG.bowl1 },
+  { n: '03', name: 'Handmade Clay Vase',     price: '₹699',                        img: IMG.vase1 },
+  { n: '04', name: 'Ceramic Dinner Plate',   price: '₹799',                        img: IMG.plate1 },
+  { n: '05', name: 'Rustic Clay Jug',        price: '₹1,299',                      img: IMG.jug1 },
+  { n: '06', name: 'Terracotta Planter',     price: '₹849',                        img: IMG.planter1 },
+  { n: '07', name: 'Storage Clay Pot',       price: '₹1,099',                      img: IMG.pot1 },
+  { n: '08', name: 'Espresso Cup',           price: '₹499',   tag: 'Popular',      img: IMG.cup2 },
+  { n: '09', name: 'Stoneware Cup',          price: '₹549',                        img: IMG.cup1 },
+  { n: '10', name: 'Ridged Clay Bowl',       price: '₹999',                        img: IMG.bowl2 },
+  { n: '11', name: 'Slim Bud Vase',          price: '₹749',                        img: IMG.vase2 },
+  { n: '12', name: 'Salad Plate Set',        price: '₹1,199',                      img: IMG.plate2 },
+  { n: '13', name: 'Small Ceramic Planter',  price: '₹649',                        img: IMG.planter2 },
+  { n: '14', name: 'Table Decor Object',     price: '₹899',   tag: 'Limited',      img: IMG.decor1 },
+  { n: '15', name: 'Incense Holder',         price: '₹399',                        img: IMG.decor4 },
+  { n: '16', name: 'Handmade Coffee Mug',    price: '₹649',                        img: IMG.mug3 },
 ]
 
 const categories = ['All', 'Mugs', 'Plates & Bowls', 'Vases', 'Planters', 'Others']

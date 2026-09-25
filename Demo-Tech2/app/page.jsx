@@ -3,7 +3,7 @@ import { Icon } from '@/components/Icons'
 import IMG from '@/lib/img'
 import { Reveal, Stagger, StaggerItem, TiltedCard } from '@/components/Motion'
 
-// Map to page-friendly names
+// Map to page-friendly names — using specific clay-item photos
 const P = {
   heroPot: IMG.heroPot,
   handsClay: IMG.workshop,
@@ -17,6 +17,9 @@ const P = {
   plate: IMG.plate1,
   jug: IMG.jug1,
   planter: IMG.planter1,
+  pot: IMG.pot3,
+  cup: IMG.cup1,
+  decor: IMG.decor1,
   earthVessel: IMG.heroAlt,
   studio1: IMG.journalA,
   studio2: IMG.journalB,
@@ -174,7 +177,7 @@ export default function HomePage() {
               <div className="grid h-24 w-24 shrink-0 place-items-center rounded-full border border-clay-400/50 text-[9px] uppercase tracking-widest-2 text-clay-600">
                 <div className="text-center">Natural<br/>Honest<br/>Timeless</div>
               </div>
-              <p className="max-w-md text-sm leading-relaxed text-ink-700/85">
+              <p className="max-w-md text-[15px] leading-relaxed text-ink-700">
                 From raw earth to finished form, each piece is a journey of transformation. We work with nature's oldest material to create objects that bring warmth, beauty and intention into everyday life.
               </p>
             </div>
@@ -225,7 +228,7 @@ export default function HomePage() {
               <h2 className="display mt-3 text-5xl leading-[0.95] text-ink-800 lg:text-6xl">Objects for a More<br/>Meaningful Home.</h2>
             </div>
             <div className="flex items-end gap-8">
-              <p className="max-w-xs text-sm text-ink-700/80">Handcrafted ceramics designed to be lived with — in your kitchen, on your table, and throughout your home.</p>
+              <p className="max-w-xs text-[15px] leading-relaxed text-ink-700">Handcrafted ceramics designed to be lived with — in your kitchen, on your table, and throughout your home.</p>
               <Link href="/shop" className="btn-ghost">Shop All <Icon name="arrow" className="h-3.5 w-3.5" /></Link>
             </div>
           </div>
@@ -260,7 +263,7 @@ export default function HomePage() {
           <div>
             <p className="eyebrow">Featured Piece</p>
             <h2 className="display mt-3 text-5xl leading-[0.95] text-ink-800">The Earth<br/>Vessel</h2>
-            <p className="mt-5 text-sm text-ink-700/85">
+            <p className="mt-5 text-[15px] leading-relaxed text-ink-700">
               A sculptural form with raw texture and timeless presence. Each vessel is uniquely handcrafted, embracing the natural variations of clay and fire.
             </p>
             <div className="mt-6 flex items-center gap-4">
