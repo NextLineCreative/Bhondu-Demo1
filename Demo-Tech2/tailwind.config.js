@@ -27,8 +27,9 @@ module.exports = {
           600: '#8A4529',
         },
         ink: {
-          700: '#3E2A1F',
-          800: '#2E1F15',
+          700: '#2E1F13',
+          800: '#1F1509',
+          900: '#140D04',
         },
         moss: {
           700: '#2F3A2E',
@@ -37,7 +38,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        display: ['"DM Serif Display"', 'Georgia', 'serif'],
+        display: ['"Playfair Display"', 'Georgia', 'serif'],
         serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
         hand: ['"Caveat"', 'cursive'],
         sans: ['Inter', 'system-ui', 'sans-serif'],
