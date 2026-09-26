@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import { Icon } from '@/components/Icons'
 import IMG from '@/lib/img'
+import SpotlightCard from '@/components/SpotlightCard'
+import { Stagger, StaggerItem } from '@/components/Motion'
 
 const products = [
   { n: '01', name: 'Everyday Clay Mug',      price: '₹599',   tag: 'Best Seller', img: IMG.mug1 },
@@ -57,29 +59,31 @@ export default function ShopPage() {
         </div>
       </section>
 
-      {/* PRODUCT GRID */}
+      {/* PRODUCT GRID — React Bits SpotlightCard + staggered reveal */}
       <section className="py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
+          <Stagger className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4" gap={0.05}>
             {products.map((p) => (
-              <article key={p.n} className="group">
-                <div className="relative overflow-hidden bg-ivory-50 rounded-sm">
-                  <img src={p.img} alt={p.name} className="h-72 w-full object-cover transition duration-500 group-hover:scale-105" />
-                  <span className="hand absolute left-3 top-2 text-2xl text-ink-800">{p.n}</span>
-                  {p.tag && (
-                    <span className="absolute right-3 top-3 rounded-full bg-ivory-50 px-3 py-1 text-[9px] uppercase tracking-widest-2 text-ink-800">{p.tag}</span>
-                  )}
-                  <button className="absolute bottom-3 right-3 grid h-9 w-9 place-items-center rounded-full bg-rust-500 text-ivory-50 opacity-0 transition group-hover:opacity-100 hover:bg-rust-600">
-                    <Icon name="bag" className="h-4 w-4" />
-                  </button>
-                </div>
-                <div className="mt-3 flex items-baseline justify-between">
-                  <p className="font-serif text-lg text-ink-800">{p.name}</p>
-                  <p className="text-sm text-ink-800">{p.price}</p>
-                </div>
-              </article>
+              <StaggerItem key={p.n}>
+                <SpotlightCard className="group h-full rounded-sm p-3">
+                  <div className="relative overflow-hidden rounded-sm">
+                    <img src={p.img} alt={p.name} loading="lazy" className="h-72 w-full object-cover transition duration-700 group-hover:scale-110" />
+                    <span className="hand absolute left-3 top-2 text-2xl text-ink-800">{p.n}</span>
+                    {p.tag && (
+                      <span className="absolute right-3 top-3 rounded-full bg-ivory-50 px-3 py-1 text-[9px] uppercase tracking-widest-2 text-ink-800">{p.tag}</span>
+                    )}
+                    <button className="absolute bottom-3 right-3 grid h-9 w-9 place-items-center rounded-full bg-rust-500 text-ivory-50 opacity-0 transition group-hover:opacity-100 hover:bg-rust-600">
+                      <Icon name="bag" className="h-4 w-4" />
+                    </button>
+                  </div>
+                  <div className="mt-3 flex items-baseline justify-between px-1">
+                    <p className="font-serif text-lg text-ink-800">{p.name}</p>
+                    <p className="text-sm text-ink-800 tabular-nums">{p.price}</p>
+                  </div>
+                </SpotlightCard>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
 

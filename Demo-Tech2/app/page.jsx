@@ -4,6 +4,7 @@ import IMG from '@/lib/img'
 import { Reveal, Stagger, StaggerItem, TiltedCard, MagneticButton, ImageZoom, Parallax, SplitText } from '@/components/Motion'
 import TextLoop from '@/components/TextLoop'
 import SkewedCarousel from '@/components/SkewedCarousel'
+import SpotlightCard from '@/components/SpotlightCard'
 
 // Map to page-friendly names — using specific clay-item photos
 const P = {
@@ -165,19 +166,21 @@ export default function HomePage() {
           <Stagger className="mt-12 grid grid-cols-2 gap-6 md:grid-cols-5">
             {archive.map((a, i) => (
               <StaggerItem key={i}>
-                <TiltedCard className="relative bg-ivory-50 p-3 paper-edge" max={10}>
-                  <span className="absolute -left-2 -top-3 hand text-2xl text-ink-800 z-10">{a.n}</span>
-                  <img src={a.img} alt={a.name} className="h-56 w-full object-cover" />
+                <SpotlightCard className="group relative rounded-sm p-3">
+                  <span className="absolute -left-2 -top-3 z-10 hand text-2xl text-ink-800">{a.n}</span>
+                  <div className="overflow-hidden rounded-sm">
+                    <img src={a.img} alt={a.name} loading="lazy" className="h-56 w-full object-cover transition duration-700 group-hover:scale-110" />
+                  </div>
                   <div className="flex items-end justify-between p-2 pt-4">
                     <div>
                       <p className="hand text-2xl leading-none text-ink-800">{a.name}</p>
-                      <p className="mt-1 text-sm text-ink-800/70">{a.price}</p>
+                      <p className="mt-1 text-sm text-ink-800/70 tabular-nums">{a.price}</p>
                     </div>
                     <button className="grid h-9 w-9 place-items-center rounded-full bg-rust-500 text-ivory-50 hover:bg-rust-600">
                       <Icon name="arrow" className="h-4 w-4" />
                     </button>
                   </div>
-                </TiltedCard>
+                </SpotlightCard>
               </StaggerItem>
             ))}
           </Stagger>

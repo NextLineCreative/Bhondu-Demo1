@@ -1,0 +1,36 @@
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border, #D8C1A9);
+  background: var(--cream, #FFF8EC);
+  transition: border-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.spotlight-card:hover {
+  border-color: var(--terracotta, #A95738);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-3, 0 8px 28px rgba(36, 21, 14, 0.1));
+}
+
+.spotlight-card__glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  z-index: 1;
+}
+
+.spotlight-card__content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spotlight-card,
+  .spotlight-card:hover {
+    transition: none;
+    transform: none;
+  }
+  .spotlight-card__glow { display: none; }
+}
